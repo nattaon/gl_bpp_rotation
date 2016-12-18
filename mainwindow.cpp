@@ -30,21 +30,20 @@ MainWindow::MainWindow(QWidget *parent) :
 	//ui->in_bin_h->setText(QString("200"));
 	//ui->in_bin_d->setText(QString("250"));
 	//box
-	AddNewIntItemToList(200, 100, 50);
-	AddNewIntItemToList(200, 100, 50);
-	AddNewIntItemToList(200, 100, 50);
-	//AddNewIntItemToList(200, 100, 50);
-	//AddNewIntItemToList(200, 50, 100);
-	//AddNewIntItemToList(200, 50, 100);
-	//AddNewIntItemToList(200, 50, 100);
-	//AddNewIntItemToList(200, 50, 100);
+	//AddNewIntItemToList(50, 55, 60);
+	//AddNewIntItemToList(40, 30, 20);
+	//AddNewIntItemToList(70, 80, 90);
+	//AddNewIntItemToList(110, 150, 120);
 
+	AddNewIntItemToList(200, 100, 50);
+	AddNewIntItemToList(200, 100, 50);
+	AddNewIntItemToList(200, 100, 50);
 	AddNewIntItemToList(200, 50, 100);
 	AddNewIntItemToList(100, 200, 50);
 	AddNewIntItemToList(100, 50, 200);
 	AddNewIntItemToList(50, 100, 200);
 	AddNewIntItemToList(50, 200, 100);
-
+	
 	/////////////////
 	connect(ui->treeWidget, SIGNAL(itemClicked(QTreeWidgetItem *, int)), this, SLOT(PressedTreeItem(QTreeWidgetItem *, int)));
 
@@ -117,30 +116,46 @@ void MainWindow::AddNewStringItemToList(QString item1, QString item2, QString it
 }
 void MainWindow::GetBoxesSize()
 {
-	int *boxes_width = new int[total_boxes];
-	int *boxes_height = new int[total_boxes];
-	int *boxes_depth = new int[total_boxes];
+	boxes_w = new int[total_boxes];
+	boxes_h = new int[total_boxes];
+	boxes_d = new int[total_boxes];
 
 	for (int i = 0; i < total_boxes; ++i)
 	{
 		QTreeWidgetItem *item = ui->treeWidget->topLevelItem(i);
 
-		boxes_width[i] = item->text(1).toInt();
-		boxes_height[i] = item->text(2).toInt();
-		boxes_depth[i] = item->text(3).toInt();
+		boxes_w[i] = item->text(1).toInt();
+		boxes_h[i] = item->text(2).toInt();
+		boxes_d[i] = item->text(3).toInt();
 
 	}
 
-	boxes_w = boxes_width;
-	boxes_h = boxes_height;
-	boxes_d = boxes_depth;
-
-	//delete[] boxes_width;  // if delete error occur
-	//delete[] boxes_height;
-	//delete[] boxes_depth;
-
-
 }
+
+void MainWindow::InitialBoxedPacking()
+{
+	boxes_x_pos = new int[total_boxes];
+	boxes_y_pos = new int[total_boxes];
+	boxes_z_pos = new int[total_boxes];
+	boxes_x_orient = new int[total_boxes];
+	boxes_y_orient = new int[total_boxes];
+	boxes_z_orient = new int[total_boxes];
+	boxes_bin_num = new int[total_boxes];
+	boxes_item_num = new int[total_boxes];
+	/*
+	for (int i = 0; i < total_boxes; ++i)  //if set 0 bpp output position willbe at 0
+	{
+		boxes_x_pos[i] = 0;
+		boxes_y_pos[i] = 0;
+		boxes_z_pos[i] = 0;
+		boxes_x_orient[i] = 0;
+		boxes_y_orient[i] = 0;
+		boxes_z_orient[i] = 0;
+		boxes_bin_num[i] = 0;
+		boxes_item_num[i] = 0;
+	}*/
+}
+
 void MainWindow::PressedTreeItem(QTreeWidgetItem *item, int col)
 {
 
@@ -179,6 +194,11 @@ void MainWindow::PressedRemoveBox()
 {
     QTreeWidgetItem* selected_item = ui->treeWidget->currentItem();
     delete selected_item;
+
+	if (last_select_item_index == total_boxes - 1)
+	{
+		last_select_item_index--;
+	}
 
     total_boxes--;
 
@@ -256,55 +276,44 @@ void MainWindow::PressedClearAll()
 
 void MainWindow::PressedBinPacking()
 {
-	int box_x[8], box_y[8], box_z[8];
-	int orien_x[8], orien_y[8], orien_z[8];
-	int bin_no[8];
-	int item_no[8];
-	int current_item = 0;
 
 	//0.set packing type
 	//std::cout << "packtype " << ui->comboBox_packMethod->currentIndex() << std::endl;
 	//binpack->SetPackingType(ui->comboBox_packMethod->currentIndex());
+
+	cout << "total_boxes = " << total_boxes << endl;
 
     //1.set bin size
     int bin_width = GetBinWidth();
     int bin_height = GetBinHeight();
     int bin_depth = GetBinDepth();
 
-
-
 	//2.set boxes size
 	GetBoxesSize();
 
-
-		//3.init box position
-		int *boxes_x_orient = new int[total_boxes];
-		int *boxes_y_orient = new int[total_boxes];
-		int *boxes_z_orient = new int[total_boxes];
-		int *boxes_bin_num = new int[total_boxes];
+	
+	//3.init box position	
+	InitialBoxedPacking();
 
 
-		int *boxes_x_pos = new int[total_boxes];
-		int *boxes_y_pos = new int[total_boxes];
-		int *boxes_z_pos = new int[total_boxes];
-		int *boxes_item_num = new int[total_boxes];
 
 
-		for (int i = 0; i < total_boxes; ++i)
-		{
-			boxes_x_orient[i] = 0;
-			boxes_y_orient[i] = 0;
-			boxes_z_orient[i] = 0;
-			boxes_bin_num[i] = 0;
+	//4.calc & get result box position
+	cout << endl;
+	cout << "input sent" << endl;
 
-			boxes_x_pos[i] = 0;
-			boxes_y_pos[i] = 0;
-			boxes_z_pos[i] = 0;
-			boxes_item_num[i] = 0;
-		}
 
-		//4.calc & get result box position
-		
+	for (int i = 0; i < total_boxes; i++)
+	{
+		std::cout
+			<< i << ":"
+			<< boxes_w[i] << " " << boxes_h[i] << " " << boxes_d[i] << " "
+			<< "bin_num:" << boxes_bin_num[i] << " "
+			<< "pos:"
+			<< boxes_x_pos[i] << " " << boxes_y_pos[i] << " " << boxes_z_pos[i] << " "
+			<< std::endl;
+
+	}
 	
 
 	binpack->CalculateBinpack(
@@ -315,18 +324,22 @@ void MainWindow::PressedBinPacking()
 		boxes_x_orient, boxes_y_orient, boxes_z_orient,
 		boxes_bin_num, boxes_item_num);
 
+	cout << endl;
+	cout << "output get" << endl;
 		// check if use bin >1
 		int item_not_fit = 0;
 		for (int i = 0; i < total_boxes; i++)
 		{
-			/*std::cout
+			std::cout
 			<< i << ":"
-			<< boxes_width[i] << " " << boxes_height[i] << " " << boxes_depth[i] << " "
+			<< boxes_w[i] << " " << boxes_h[i] << " " << boxes_d[i] << " "
 			<< "bin_num:" << boxes_bin_num[i] << " "
 			<< "pos:"
 			<< boxes_x_pos[i] << " " << boxes_y_pos[i] << " " << boxes_z_pos[i] << " "
+			<< "orient:"
+			<< boxes_x_orient[i] << " " << boxes_y_orient[i] << " " << boxes_z_orient[i] << " "
 			<< std::endl;
-			*/
+			
 			if (boxes_bin_num[i] != 1) item_not_fit++;
 
 		}
@@ -352,7 +365,9 @@ void MainWindow::PressedBinPacking()
 
 
 
-
+	delete[] boxes_w;  // if delete error occur
+	delete[] boxes_h;
+	delete[] boxes_d;
 
 
 	//delete[] boxes_x_pos;  //if delete display will reset to nothing

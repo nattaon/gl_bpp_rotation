@@ -20,23 +20,14 @@ find_package(OpenGL)
 
 file(GLOB  project_SOURCES *.cpp)
 file(GLOB  project_HEADERS *.h)
-file(GLOB  project_FORMS *.ui)
 
-#file(GLOB library_sources ${PROJECT_SOURCE_DIR}/../class_library/*.cpp)
-#file(GLOB library_headers ${PROJECT_SOURCE_DIR}/../class_library/*.h)
-
-#message(${library_sources})
-
-#file(COPY "../glut-3.7.6-bin_x64/glut32.lib" DESTINATION "./")
 file(COPY "glut32.lib" DESTINATION "./")
 
-QT5_WRAP_CPP (project_HEADERS_MOC   ${project_HEADERS})
-QT5_WRAP_UI  (project_FORMS_HEADERS ${project_FORMS})
+QT5_WRAP_CPP (project_HEADERS_MOC   mainwindow.h glwidget.h) #Q_OBJECT
+QT5_WRAP_UI  (project_FORMS_HEADERS mainwindow.ui)
 
 # executable
 ADD_EXECUTABLE  (OpenGLBpp 
-#${library_sources} 
-#${library_headers} 
 ${project_SOURCES} 
 ${project_HEADERS} 
 ${project_FORMS_HEADERS} 

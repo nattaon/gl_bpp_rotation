@@ -41,8 +41,8 @@ void GLWidget::initializeGL()
 	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
 	glMaterialfv(GL_FRONT, GL_SHININESS, high_shininess);
 
-	//glEnable(GL_DEPTH_TEST);
-	//glShadeModel(GL_SMOOTH);
+	glEnable(GL_DEPTH_TEST);
+	glShadeModel(GL_SMOOTH);
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
 

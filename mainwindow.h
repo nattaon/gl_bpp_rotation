@@ -47,7 +47,10 @@ private:
 	int total_boxes;
 	int bin_w, bin_h, bin_d;
 	int *boxes_w, *boxes_h, *boxes_d;
-
+	int *boxes_x_pos, *boxes_y_pos, *boxes_z_pos;
+	int *boxes_x_orient, *boxes_y_orient, *boxes_z_orient;
+	int *boxes_bin_num;
+	int *boxes_item_num;
 
 	CalculateBppErhan *binpack;
 	ReadWriteFile *txtfile;
@@ -62,6 +65,7 @@ private:
     int GetTimeLimit();
 
 	void GetBoxesSize();
+	void InitialBoxedPacking();
 
     void AddNewIntItemToList(int item1, int item2, int item3);
     void AddNewStringItemToList(QString item1, QString item2, QString item3);
