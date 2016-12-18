@@ -26,15 +26,17 @@ MainWindow::MainWindow(QWidget *parent) :
 
 	//some initial 
 	//bin
-	//ui->in_bin_w->setText(QString("250"));
-	//ui->in_bin_h->setText(QString("200"));
-	//ui->in_bin_d->setText(QString("250"));
-	//box
-	//AddNewIntItemToList(50, 55, 60);
-	//AddNewIntItemToList(40, 30, 20);
-	//AddNewIntItemToList(70, 80, 90);
-	//AddNewIntItemToList(110, 150, 120);
 
+	//box
+	AddNewIntItemToList(142, 89, 58);
+	AddNewIntItemToList(108, 138, 51);
+	AddNewIntItemToList(139, 87, 62);
+	AddNewIntItemToList(95, 162, 54);
+	AddNewIntItemToList(86, 148, 62);
+	ui->in_bin_w->setText("305");
+	ui->in_bin_h->setText("244");
+	ui->in_bin_d->setText("121");
+	/*
 	AddNewIntItemToList(200, 100, 50);
 	AddNewIntItemToList(200, 100, 50);
 	AddNewIntItemToList(200, 100, 50);
@@ -43,7 +45,10 @@ MainWindow::MainWindow(QWidget *parent) :
 	AddNewIntItemToList(100, 50, 200);
 	AddNewIntItemToList(50, 100, 200);
 	AddNewIntItemToList(50, 200, 100);
-	
+	ui->in_bin_w->setText("200");
+	ui->in_bin_h->setText("200");
+	ui->in_bin_d->setText("200");
+	*/
 	/////////////////
 	connect(ui->treeWidget, SIGNAL(itemClicked(QTreeWidgetItem *, int)), this, SLOT(PressedTreeItem(QTreeWidgetItem *, int)));
 
@@ -61,9 +66,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	connect(ui->bt_next_order, SIGNAL(pressed()), this, SLOT(PressedNextOrder()));
 
 
-	ui->in_bin_w->setText("200");
-	ui->in_bin_h->setText("200");
-	ui->in_bin_d->setText("200");
+
 
     ui->widget->SetInitialBin( GetBinWidth(), GetBinHeight(), GetBinDepth());
 
@@ -163,13 +166,13 @@ void MainWindow::PressedTreeItem(QTreeWidgetItem *item, int col)
 	//std::cout << "mousePressEvent " << ui->treeWidget->currentIndex().row() << std::endl;
 
 	QTreeWidgetItem* last_selected_item = ui->treeWidget->topLevelItem(last_select_item_index);
-	last_selected_item->setBackgroundColor(0, QColor(255, 255, 255));
+	//last_selected_item->setBackgroundColor(0, QColor(255, 255, 255));
 	last_selected_item->setBackgroundColor(1, QColor(255, 255, 255));
 	last_selected_item->setBackgroundColor(2, QColor(255, 255, 255));
 	last_selected_item->setBackgroundColor(3, QColor(255, 255, 255));
 
 
-	item->setBackgroundColor(0, QColor(200, 200, 200));
+	//item->setBackgroundColor(0, QColor(200, 200, 200));
 	item->setBackgroundColor(1, QColor(200, 200, 200));
 	item->setBackgroundColor(2, QColor(200, 200, 200));
 	item->setBackgroundColor(3, QColor(200, 200, 200));
@@ -360,7 +363,15 @@ void MainWindow::PressedBinPacking()
 			boxes_x_pos, boxes_y_pos, boxes_z_pos);
 
 
+		for (int i = total_boxes - 1; i >= 0; i--)
+		{
+			color_rgb = ui->widget->Color->GetColorIndex(i);
 
+			cout << "color_rgb " << color_rgb[3] << "," << color_rgb[4] << "," << color_rgb[5] << endl;
+
+			QTreeWidgetItem *item = ui->treeWidget->topLevelItem(i);
+			item->setBackgroundColor(0, QColor(color_rgb[3], color_rgb[4], color_rgb[5]));
+		}
 
 
 

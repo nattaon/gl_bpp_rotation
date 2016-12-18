@@ -43,7 +43,7 @@ private:
     Ui::MainWindow *ui;
 	int last_select_item_index;
 
-
+	float *color_rgb;
 	int total_boxes;
 	int bin_w, bin_h, bin_d;
 	int *boxes_w, *boxes_h, *boxes_d;

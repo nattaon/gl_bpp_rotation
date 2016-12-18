@@ -27,6 +27,8 @@ public:
 	void IncreaseShowNumber();
 	void DecreaseShowNumber();
 
+	MyColor *Color;
+
 public slots:
 	// slots for xyz-rotation slider
 	void setXRotation(int angle);
@@ -54,7 +56,7 @@ private:
 	float zoom;
 	QPoint lastPos;
 
-	MyColor *Color;
+	
 	float *color_rgb;
 
 

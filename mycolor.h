@@ -1,6 +1,6 @@
 #ifndef MYCOLOR_H
 #define MYCOLOR_H
-#define MAX_COLOR 100
+#define MAX_COLOR 20
 
 class MyColor
 {
@@ -10,7 +10,7 @@ public:
 	float *GetColorIndex(int index);
 
 private:
-	float color_table[MAX_COLOR][3];
+	float color_table[MAX_COLOR][6];
 
 
 };
