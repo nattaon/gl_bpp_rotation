@@ -186,7 +186,7 @@ int total_box_to_pack,
 
   free(scrapfirst);
 
-  cout << "malloc couunt = " << malloccount << endl;
+  cout << "malloc count = " << malloccount << endl;
 
  // free(smallestz);
 

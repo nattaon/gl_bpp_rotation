@@ -54,14 +54,17 @@ void GLWidget::initializeGL()
 void GLWidget::resizeGL(int w, int h)
 {
 	//be called at first time
-	std::cout << "resizeGL w*h:" << w <<"*"<< h <<std::endl;
+	//std::cout << "resizeGL w*h:" << w <<"*"<< h <<std::endl;
 
 	glViewport(0, 0, w, h);
 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
+
+	float length = 500.0;
+	glOrtho(-1 * length, length, -1 * length, length, -1 * length, length);
 	//glOrtho(-250.0, 250.0, -250.0, 250.0, -250.0, 250.0);
-	glOrtho(-1 * bin_w, bin_w, -1 * bin_h, bin_h, -1 * bin_d*2, bin_d);//left,right,bottom,top,near.far
+	//glOrtho(-1 * bin_w*2, bin_w*2, -1 * bin_h*2, bin_h*2, -1 * bin_d*2, bin_d*2);//left,right,bottom,top,near.far
 	//glOrtho(-2, +2, -2, +2, 1.0, 15.0);
 
 	glMatrixMode(GL_MODELVIEW);
@@ -139,13 +142,13 @@ void GLWidget::setZRotation(int angle)
 void GLWidget::setXTranslation(int value)
 {
 	xMove += value;
-	std::cout << "xMove:" << xMove << std::endl;
+	//std::cout << "xMove:" << xMove << std::endl;
 	updateGL();
 }
 void GLWidget::setYTranslation(int value)
 {
-	yMove += value;
-	std::cout << "yMove:" << yMove << std::endl;
+	yMove -= value;
+	//std::cout << "yMove:" << yMove << std::endl;
 	updateGL();
 
 }
@@ -154,7 +157,7 @@ void GLWidget::mousePressEvent(QMouseEvent *event)
 {
 	//react on left click, right click, wheel pressed
 	lastPos = event->pos();
-	std::cout << lastPos.x() << "," << lastPos.y() << std::endl;
+	//std::cout << lastPos.x() << "," << lastPos.y() << std::endl;
 }
 
 void GLWidget::mouseMoveEvent(QMouseEvent *event)
@@ -199,13 +202,13 @@ void GLWidget::wheelEvent(QWheelEvent *event)
 	{
 		std::cout << "delta value forbidden " << event->delta() << std::endl;
 	}
-	std::cout << "zoom=" << zoom << std::endl;
+	//std::cout << "zoom=" << zoom << std::endl;
 	updateGL();
 }
 
 void GLWidget::SetInitialBin(int binW, int binH, int binD)
 {
-	std::cout << "SetInitialBin" << std::endl;
+	//std::cout << "SetInitialBin" << std::endl;
 
     bin_w = binW;
     bin_h = binH;
