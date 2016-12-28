@@ -28,7 +28,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	//bin
 
 	//box
-	AddNewIntItemToList(142, 89, 58);
+	/*AddNewIntItemToList(142, 89, 58);
 	AddNewIntItemToList(108, 138, 51);
 	AddNewIntItemToList(139, 87, 62);
 	AddNewIntItemToList(95, 162, 54);
@@ -36,6 +36,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->in_bin_w->setText("305");
 	ui->in_bin_h->setText("244");
 	ui->in_bin_d->setText("121");
+	*/
 	/*
 	AddNewIntItemToList(200, 100, 50);
 	AddNewIntItemToList(200, 100, 50);
@@ -68,11 +69,13 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
 
-    ui->widget->SetInitialBin( GetBinWidth(), GetBinHeight(), GetBinDepth());
 
     binpack = new CalculateBppErhan();
 	txtfile = new ReadWriteFile();
 
+	LoadBPPFileToUI("C:/Users/Nattaon/Desktop/qt_bpp_rotate/box10.txt");
+
+	ui->widget->SetInitialBin(GetBinWidth(), GetBinHeight(), GetBinDepth());
 }
 void MainWindow::AddNewIntItemToList(int item1,int item2,int item3)
 {
@@ -218,11 +221,23 @@ void MainWindow::PressedLoadDb()
 	QString fileName = QFileDialog::getOpenFileName(this,
 		tr("Open Image"), "../", tr("Iext Files (*.txt)"));
 
-	std::cout << "Got filename: " << fileName.toStdString() << std::endl;
 	
+	if (!fileName.trimmed().isEmpty()) // no file selected
+	{
+		std::cout << "Got filename: " << fileName.toStdString() << std::endl;
+		LoadBPPFileToUI(fileName.toStdString());
+		
+	}
+
 	
-	
-	txtfile->OpenTxtFileBoxes(fileName.toStdString());
+}
+
+
+void MainWindow::LoadBPPFileToUI(string filename)
+{
+	ui->label_filename->setText(QString::fromStdString(filename));
+
+	txtfile->OpenTxtFileBoxes(filename);
 
 	int total_boxes_from_txt = txtfile->GetTotalBox();
 
@@ -232,9 +247,9 @@ void MainWindow::PressedLoadDb()
 
 	int *boxes_w_from_txt = txtfile->GetBoxesWidth();
 	int *boxes_h_from_txt = txtfile->GetBoxesHeight();
-	int *boxes_d_from_txt = txtfile->GetBoxesDepth();	
+	int *boxes_d_from_txt = txtfile->GetBoxesDepth();
 	std::cout << "Got total_boxes: " << total_boxes_from_txt << std::endl;
-	
+
 	PressedClearAll();
 
 	ui->in_bin_w->setText(QString::number(bin_w_from_txt));
@@ -248,12 +263,8 @@ void MainWindow::PressedLoadDb()
 		AddNewIntItemToList(boxes_w_from_txt[i], boxes_h_from_txt[i], boxes_d_from_txt[i]);
 		//AddNewIntItemToList(boxes_w[i], boxes_h[i], boxes_d[i]);
 	}
-	
-
-
-
-
 }
+
 void MainWindow::PressedSaveDb()
 {
 	QString fileName = QFileDialog::getSaveFileName(this,
@@ -367,7 +378,7 @@ void MainWindow::PressedBinPacking()
 		{
 			color_rgb = ui->widget->Color->GetColorIndex(i);
 
-			cout << "color_rgb " << color_rgb[3] << "," << color_rgb[4] << "," << color_rgb[5] << endl;
+			//cout << "color_rgb " << color_rgb[3] << "," << color_rgb[4] << "," << color_rgb[5] << endl;
 
 			QTreeWidgetItem *item = ui->treeWidget->topLevelItem(i);
 			item->setBackgroundColor(0, QColor(color_rgb[3], color_rgb[4], color_rgb[5]));

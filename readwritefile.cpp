@@ -17,20 +17,27 @@ void ReadWriteFile::OpenTxtFileBoxes(string filename)
 		return;
 	}
 
-	string sLine;
+	string sLine,sLine2,sLine3;
 
 	//1.get bin size
-	getline(infile, sLine);
+
 
 	int index1 = 0;
 	int index2 = 0;
-
+	int index3 = 0;
+	int index4 = 0;
+	
+	getline(infile, sLine);
 	index1 = sLine.find(" ");
-	index2 = sLine.find_last_of(" ");
-
 	bin_w = stod(sLine.substr(0, index1));
-	bin_h = stod(sLine.substr(index1, index2));
-	bin_d = stod(sLine.substr(index2));
+
+	sLine2 = sLine.substr(index1+1);
+	index2 = sLine2.find(" ");
+	bin_h = stod(sLine2.substr(0, index2));
+
+	sLine3 = sLine2.substr(index2 + 1);
+	index3 = sLine3.find(" ");
+	bin_d = stod(sLine3.substr(0, index3));
 
 	//2.get boxes total
 	getline(infile, sLine);
@@ -48,17 +55,27 @@ void ReadWriteFile::OpenTxtFileBoxes(string filename)
 
 	for (int i = 0; i < total_boxes; i++)
 	{
-		getline(infile, sLine);
+		
 
 		//cout << "sLine=" << sLine << "*" << endl;
 
+		getline(infile, sLine);
 		index1 = sLine.find(" ");
-		index2 = sLine.find_last_of(" ");
-
 		c_width = stod(sLine.substr(0, index1));
-		c_height = stod(sLine.substr(index1, index2));
-		c_depth = stod(sLine.substr(index2));
 
+		sLine2 = sLine.substr(index1 + 1);
+		index2 = sLine2.find(" ");
+		c_height = stod(sLine2.substr(0, index2));
+
+		sLine3 = sLine2.substr(index2 + 1);
+		index3 = sLine3.find(" ");
+		c_depth = stod(sLine3.substr(0, index3));
+
+		index4 = sLine3.find("//");
+		if (index4!=-1)
+		{ 
+			//cout << index4 << ":" << sLine3.substr(index4 + 2) << endl;
+		}
 		//cout << i << ":" << c_width << "," << c_height << "," << c_depth << endl;
 
 		boxes_width[i] = c_width;

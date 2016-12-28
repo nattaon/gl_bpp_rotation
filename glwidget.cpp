@@ -61,7 +61,7 @@ void GLWidget::resizeGL(int w, int h)
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
-	float length = 500.0;
+	float length = 500;
 	glOrtho(-1 * length, length, -1 * length, length, -1 * length, length);
 	//glOrtho(-250.0, 250.0, -250.0, 250.0, -250.0, 250.0);
 	//glOrtho(-1 * bin_w*2, bin_w*2, -1 * bin_h*2, bin_h*2, -1 * bin_d*2, bin_d*2);//left,right,bottom,top,near.far

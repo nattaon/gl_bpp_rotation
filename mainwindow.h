@@ -69,6 +69,9 @@ private:
 
     void AddNewIntItemToList(int item1, int item2, int item3);
     void AddNewStringItemToList(QString item1, QString item2, QString item3);
+
+
+	void LoadBPPFileToUI(string filename);
 };
 
 #endif // MAINWINDOW_H

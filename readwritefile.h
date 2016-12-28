@@ -1,5 +1,6 @@
 #ifndef READWRITEFILE_H
 #define READWRITEFILE_H
+#include<vector>
 #include<string>
 using namespace std;
 class ReadWriteFile
@@ -23,6 +24,7 @@ private:
 	int total_boxes;
 	int bin_w, bin_h, bin_d;
 	int *boxes_w, *boxes_h, *boxes_d;
+	vector<string> boxes_name;
 
 
 

@@ -18,7 +18,7 @@ void MyColor::SetRandomColor(int index)
 	float g = (rand() % 200 + 56);// / 255.0;
 	float b = (rand() % 200 + 56);// / 255.0;
 
-	std::cout << "rgb" << r << "," << g << "," << b << std::endl;
+	//std::cout << "rgb " << r << "," << g << "," << b << std::endl;
 
 
 	color_table[index][3] = r;

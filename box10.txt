@@ -1,12 +1,12 @@
-320 245 115
+320 115 245
 10
-113 161 52
-50 120 30
-41 71 45
-116 95 35
-159 96 63
-168 99 52
-152 80 70
-90 163 25
-138 122 90
-105 107 51
+113 161 52 //white dasses
+50 120 30 //blue christmas s box
+41 71 45 //pokemon s box
+116 95 35 //milky chocolate
+159 96 63 //brown chocolate cookie
+168 99 52 //pink zackey
+152 80 70 //red l box
+90 163 25 //brown choco strick fran
+138 122 90 //brown hokkaido poteto
+105 107 51 //red m box
