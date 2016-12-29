@@ -234,7 +234,12 @@ void GLWidget::ResetWindow()
 	show_number = 0;
 	updateGL();
 }
-void GLWidget::SetShowBinpacking(int n, int binW, int binH, int binD, int *w, int *h, int *d, int *x, int *y, int *z)
+void GLWidget::SetShowBinpacking(
+	int n,
+	int binW, int binH, int binD,
+	int *w, int *h, int *d,
+	int *x, int *y, int *z,
+	int *bin_no, int *item_no)
 {
 	is_show_binpacking = true;
 
@@ -254,6 +259,9 @@ void GLWidget::SetShowBinpacking(int n, int binW, int binH, int binD, int *w, in
 	boxes_x = x;
 	boxes_y = y;
 	boxes_z = z;
+
+	boxes_binno = bin_no;
+	boxes_itemno = item_no;
 
 	/*for (int i = 0; i < n; i++) {
 		std::cout
@@ -326,10 +334,20 @@ void GLWidget::DrawBoxes()
 	for (int i = 0; i < show_number; i++)
 	{
 		color_rgb=Color->GetColorIndex(i);
-		glColor3d(color_rgb[0], color_rgb[1], color_rgb[2]);
+		if (boxes_binno[i]==1)//pack
+		{ 
+			glColor3d(color_rgb[0], color_rgb[1], color_rgb[2]);
+			DrawRectangle(boxes_x[i], boxes_y[i], boxes_z[i], boxes_w[i], boxes_h[i], boxes_d[i]);
+		}
+		else // not pack
+		{
+			//glColor3d(0.1, 0.1, 0.1);
+			//DrawRectangle(boxes_x[i], boxes_y[i], boxes_z[i], boxes_w[i], boxes_h[i], boxes_d[i]);
+		}
+	
 		//printf("color i=%d r,g,b=%f,%f,%f\n", i, color_rgb[0], color_rgb[1], color_rgb[2]);
 		//printf("%2d (%2d %2d %2d) : Bin %2d (%2d, %2d, %2d)\n", i,w[i],h[i],d[i],bno[i],x[i],y[i],z[i]);
-		DrawRectangle(boxes_x[i], boxes_y[i], boxes_z[i], boxes_w[i], boxes_h[i], boxes_d[i]);
+		//DrawRectangle(boxes_x[i], boxes_y[i], boxes_z[i], boxes_w[i], boxes_h[i], boxes_d[i]);
 	}
 
 

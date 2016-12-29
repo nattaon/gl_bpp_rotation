@@ -68,7 +68,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     binpack = new CalculateBppErhan();
-	txtfile = new ReadWriteFile();
+	
 	
 	LoadBPPFileToUI("C:/Users/nattaon2/Desktop/gl_bpp_rotation/box_all.txt");
 	//LoadBPPFileToUI("C:/Users/Nattaon/Desktop/qt_bpp_rotate/box10.txt");
@@ -234,8 +234,10 @@ void MainWindow::PressedLoadDb()
 
 void MainWindow::LoadBPPFileToUI(string filename)
 {
+	
 	ui->label_filename->setText(QString::fromStdString(filename));
 
+	txtfile = new ReadWriteFile();
 	txtfile->OpenTxtFileBoxes(filename);
 
 	//PressedClearAll();
@@ -253,7 +255,6 @@ void MainWindow::LoadBPPFileToUI(string filename)
 			txtfile->boxes_d[i],
 			txtfile->boxes_name.at(i));
 
-		//AddNewIntItemToList(boxes_w[i], boxes_h[i], boxes_d[i]);
 	}
 	ui->widget->Color->SetColor(
 		txtfile->total_boxes,
@@ -354,30 +355,45 @@ void MainWindow::PressedBinPacking()
 			<< boxes_x_orient[i] << " " << boxes_y_orient[i] << " " << boxes_z_orient[i] << " "
 			<< std::endl;
 			
-			if (boxes_bin_num[i] != 1) item_not_fit++;
+			if (boxes_bin_num[i] != 1)
+			{
+				item_not_fit++;
+			}
 
 		}
+		cout << endl;
+		cout << "packed " << total_boxes - item_not_fit << "/" << total_boxes << endl;
+		/*
 		if (item_not_fit != 0)
 		{
 			//std::cout << " cannot fit another " << item_not_fit << " boxes to bin" << std::endl;
 			QString text = "Another " + QString::number(item_not_fit) + " boxes cannot fit in to bin"; // CORRECT
 			QMessageBox::information(0, QString("Cannot fit all boxes"), text, QMessageBox::Ok);
-		}
+		}*/
 		//remove remain boxes
 
-		binpack->SortBoxesOrder();
+		//binpack->SortBoxesOrder();
 
 		ui->widget->SetShowBinpacking(
 			total_boxes,
 			bin_width, bin_height, bin_depth,
 			boxes_x_orient, boxes_y_orient, boxes_z_orient,
-			boxes_x_pos, boxes_y_pos, boxes_z_pos);
+			boxes_x_pos, boxes_y_pos, boxes_z_pos,
+			boxes_bin_num, boxes_item_num);
 
 
 		for (int i = total_boxes - 1; i >= 0; i--)
 		{
-			color_rgb = ui->widget->Color->GetColorIndex(i);
-
+			if (boxes_bin_num[i] == 1)//pack
+			{
+				color_rgb = ui->widget->Color->GetColorIndex(i);
+			}
+			else//not pack
+			{
+				color_rgb[3] = 10;
+				color_rgb[4] = 10;
+				color_rgb[5] = 10;
+			}
 			//cout << "color_rgb " << color_rgb[3] << "," << color_rgb[4] << "," << color_rgb[5] << endl;
 
 			QTreeWidgetItem *item = ui->treeWidget->topLevelItem(i);

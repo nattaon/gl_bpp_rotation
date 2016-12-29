@@ -23,7 +23,12 @@ public:
 
     void SetInitialBin(int binW, int binH,int binD);
 	void ResetWindow();
-	void SetShowBinpacking(int n,int binW, int binH,int binD, int *w, int *h, int *d, int *x, int *y, int *z);
+	void SetShowBinpacking(
+		int n,
+		int binW, int binH,int binD, 
+		int *w, int *h, int *d, 
+		int *x, int *y, int *z,
+		int *bin_no, int *item_no);
 	void IncreaseShowNumber();
 	void DecreaseShowNumber();
 
@@ -64,6 +69,7 @@ private:
 	int bin_w, bin_h, bin_d;
 	int *boxes_w, *boxes_h, *boxes_d;
 	int *boxes_x, *boxes_y, *boxes_z;
+	int *boxes_binno, *boxes_itemno;
 	int axis_length;
 
 	int show_number;
