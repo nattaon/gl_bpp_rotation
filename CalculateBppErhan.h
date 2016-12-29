@@ -1,4 +1,5 @@
 #include<iostream>
+using namespace std;
 class CalculateBppErhan
 {
 public:
@@ -14,6 +15,8 @@ public:
 		int *bin_no, int *item_no);
 
 	void SortBoxesOrder();
+	void InvertBoxesOrder();
+
 	bool CheckAllCanFit();
 
 	void quickSort(int *arr, int left, int right);
@@ -21,12 +24,12 @@ public:
 	void swap_pare(int *a, int *b);
 	void printboxes_array();
 
-private:
-	int total_boxes;
-	int b_w, b_h, b_d;
-	int *w, *h, *d;
-	int *x, *y, *z;
-	int *bno;
+	int bpp_total_box_to_pack;
+	int bpp_bin_w, bpp_bin_h, bpp_bin_d;
+	int	*bpp_box_w, *bpp_box_h, *bpp_box_d;
+	int	*bpp_box_x, *bpp_box_y, *bpp_box_z;
+	int	*bpp_orien_x, *bpp_orien_y, *bpp_orien_z;
+	int	*bpp_bin_no, *bpp_item_no;
 
 };
 

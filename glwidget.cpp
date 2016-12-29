@@ -294,6 +294,13 @@ void GLWidget::DecreaseShowNumber()
 		updateGL();
 	}
 }
+void GLWidget::ShowFirstNumber()
+{
+
+	show_number=1;
+	updateGL();
+
+}
 void GLWidget::draw_teapot(float size)
 {
 

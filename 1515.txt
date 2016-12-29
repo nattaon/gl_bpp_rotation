@@ -1,0 +1,16 @@
+325 210 230
+14
+115 50 30 (11,124,111)//29green_snowman
+106 84 35 (226,194,15)//30yellow_teddybear
+116 95 35 (43,226,249)//34blue_milky
+95 46 19 (246,184,82)//35orange_chocoball
+95 46 19 (243,117,210)//36pink_chocoball
+70 45 45 (48,171,126)//37green_pikachu
+50 50 50 (237,128,181)//38pink_christmasbox
+40 40 40 (247,247,85)//39yellow_christmasbox
+85 75 69 (251,250,144)//40yellow_chamomile
+214 70 56 (220,20,13)//44red_cookies
+214 70 56 (220,20,13)//45red_cookies
+170 77 15 (183,228,248)//47white_alfort
+204 67 24 (57,59,67)//50grey_tokyochoco
+150 121 95 (133,210,232)//54blue_fujisan

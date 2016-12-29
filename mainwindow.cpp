@@ -132,27 +132,39 @@ void MainWindow::AddNewStringItemToList(QString item1, QString item2, QString it
 	ui->treeWidget->addTopLevelItem(item);
 
 }
-void MainWindow::GetBoxesInfoFromUI()
+/*
+void MainWindow::CopyBoxesInfoFromUI(
+	int **_boxes_w, int **_boxes_h, int **_boxes_d,
+	vector<string> _boxes_name,
+	int **_boxes_r, int **_boxes_g, int **_boxes_b)
 {
 	int total_boxes = ui->treeWidget->topLevelItemCount();
 
-	boxes_w = new int[total_boxes];
-	boxes_h = new int[total_boxes];
-	boxes_d = new int[total_boxes];
+	for (int i = 0; i < total_boxes; ++i)
+	{
+		QTreeWidgetItem *item = ui->treeWidget->topLevelItem(i);
 
-	boxes_r = new int[total_boxes];
-	boxes_g = new int[total_boxes];
-	boxes_b = new int[total_boxes];
-	boxes_name.clear();
+		*_boxes_w[i] = item->text(1).toInt();
+		*_boxes_h[i] = item->text(2).toInt();
+		*_boxes_d[i] = item->text(3).toInt();
+		_boxes_name.push_back(item->text(4).toStdString());
+		*_boxes_r[i] = item->text(5).toInt();
+		*_boxes_g[i] = item->text(6).toInt();
+		*_boxes_b[i] = item->text(7).toInt();
+	}
+}
+
+void MainWindow::GetBoxesInfoFromUI()
+{
+	int total_boxes = ui->treeWidget->topLevelItemCount();
 	//cout << "boxes_name.size()=" << boxes_name.size() << endl;
 	if (boxes_name.size() != 0)
 	{
-		QMessageBox::information(0, QString("boxes_name size !=0"), 
-			QString("This should be 0 in order to copy new value"), 
-			QMessageBox::Ok);
-		return;
+	QMessageBox::information(0, QString("boxes_name size !=0"),
+	QString("This should be 0 in order to copy new value"),
+	QMessageBox::Ok);
+	return;
 	}
-
 	for (int i = 0; i < total_boxes; ++i)
 	{
 		QTreeWidgetItem *item = ui->treeWidget->topLevelItem(i);
@@ -167,19 +179,12 @@ void MainWindow::GetBoxesInfoFromUI()
 	}
 
 }
-
+*/
 void MainWindow::InitialBoxedPacking()
 {
 	int total_boxes = ui->treeWidget->topLevelItemCount();
 
-	boxes_x_pos = new int[total_boxes];
-	boxes_y_pos = new int[total_boxes];
-	boxes_z_pos = new int[total_boxes];
-	boxes_x_orient = new int[total_boxes];
-	boxes_y_orient = new int[total_boxes];
-	boxes_z_orient = new int[total_boxes];
-	boxes_bin_num = new int[total_boxes];
-	boxes_item_num = new int[total_boxes];
+
 	/*
 	for (int i = 0; i < total_boxes; ++i)  //if set 0 bpp output position willbe at 0
 	{
@@ -304,17 +309,35 @@ void MainWindow::PressedSaveDb()
 
 	std::cout << "Set filename: " << fileName.toStdString() << std::endl;
 
+	int total_boxes = ui->treeWidget->topLevelItemCount();
+	int *save_boxes_w = new int[total_boxes];
+	int *save_boxes_h = new int[total_boxes];
+	int *save_boxes_d = new int[total_boxes];
+	vector<string> save_boxes_name;
+	int *save_boxes_r = new int[total_boxes];
+	int *save_boxes_g = new int[total_boxes];
+	int *save_boxes_b = new int[total_boxes];
+	
 
+	for (int i = 0; i < total_boxes; ++i)
+	{
+		QTreeWidgetItem *item = ui->treeWidget->topLevelItem(i);
 
-
-	GetBoxesInfoFromUI();
+		save_boxes_w[i] = item->text(1).toInt();
+		save_boxes_h[i] = item->text(2).toInt();
+		save_boxes_d[i] = item->text(3).toInt();
+		save_boxes_name.push_back(item->text(4).toStdString());
+		save_boxes_r[i] = item->text(5).toInt();
+		save_boxes_g[i] = item->text(6).toInt();
+		save_boxes_b[i] = item->text(7).toInt();
+	}
 
 
 	txtfile->SaveTxtFileBoxes(fileName.toStdString(), GetTotalBox(),
 		GetBinWidth(), GetBinHeight(), GetBinDepth(),
-		boxes_w, boxes_h, boxes_d,
-		boxes_name,
-		boxes_r, boxes_g, boxes_b);
+		save_boxes_w, save_boxes_h, save_boxes_d,
+		save_boxes_name,
+		save_boxes_r, save_boxes_g, save_boxes_b);
 }
 void MainWindow::PressedClearAll()
 {
@@ -342,14 +365,51 @@ void MainWindow::PressedBinPacking()
     int bin_height = GetBinHeight();
     int bin_depth = GetBinDepth();
 
-	//2.set boxes size
 
+	//2.declare box 
+	int *boxes_w = new int[total_boxes];
+	int *boxes_h = new int[total_boxes];
+	int *boxes_d = new int[total_boxes];
+	//vector<string> boxes_name;
+	int *boxes_r = new int[total_boxes];
+	int *boxes_g = new int[total_boxes];
+	int *boxes_b = new int[total_boxes];
+	int *boxes_x_pos = new int[total_boxes];
+	int *boxes_y_pos = new int[total_boxes];
+	int *boxes_z_pos = new int[total_boxes];
+	int *boxes_x_orient = new int[total_boxes];
+	int *boxes_y_orient = new int[total_boxes];
+	int *boxes_z_orient = new int[total_boxes];
+	int *boxes_bin_num = new int[total_boxes];
+	int *boxes_item_num = new int[total_boxes];
 
-	GetBoxesInfoFromUI();
+	//3.init value, copy boxes size
+	for (int i = 0; i < total_boxes; ++i)
+	{
+		QTreeWidgetItem *item = ui->treeWidget->topLevelItem(i);
+		boxes_bin_num[i] = 0;
+		boxes_item_num[i] = item->text(0).toInt();
+
+		boxes_w[i] = item->text(1).toInt();
+		boxes_h[i] = item->text(2).toInt();
+		boxes_d[i] = item->text(3).toInt();
+		//boxes_name.push_back(item->text(4).toStdString());
+		boxes_r[i] = item->text(5).toInt();
+		boxes_g[i] = item->text(6).toInt();
+		boxes_b[i] = item->text(7).toInt();
+
+		boxes_x_pos[i] = 0;
+		boxes_y_pos[i] = 0;
+		boxes_z_pos[i] = 0;
+
+		boxes_x_orient[i] = 0;
+		boxes_y_orient[i] = 0;
+		boxes_z_orient[i] = 0;
+
+	}
 
 	
-	//3.init box position	
-	InitialBoxedPacking();
+
 
 
 
@@ -361,13 +421,13 @@ void MainWindow::PressedBinPacking()
 
 	for (int i = 0; i < total_boxes; i++)
 	{
-		std::cout
-			<< i << ":"
-			<< boxes_w[i] << " " << boxes_h[i] << " " << boxes_d[i] << " "
-			<< "bin_num:" << boxes_bin_num[i] << " "
-			<< "pos:"
-			<< boxes_x_pos[i] << " " << boxes_y_pos[i] << " " << boxes_z_pos[i] << " "
-			<< std::endl;
+		cout
+		<< "No." << boxes_item_num[i] << ", " 
+		<< "bin_num:" << boxes_bin_num[i] << ", " 
+		<< "whd:" << boxes_w[i] << "x" << boxes_h[i] << "x" << boxes_d[i] << ", " 
+		<< "pos:" << boxes_x_pos[i] << "," << boxes_y_pos[i] << "," << boxes_z_pos[i] << ", " 
+		<< "orient:" << boxes_x_orient[i] << "," << boxes_y_orient[i] << "," << boxes_z_orient[i] << ", " 
+		<< endl;
 
 	}
 	
@@ -386,16 +446,14 @@ void MainWindow::PressedBinPacking()
 		int item_not_fit = 0;
 		for (int i = 0; i < total_boxes; i++)
 		{
-			std::cout
-			<< i << ":"
-			<< boxes_w[i] << " " << boxes_h[i] << " " << boxes_d[i] << " "
-			<< "bin_num:" << boxes_bin_num[i] << " "
-			<< "pos:"
-			<< boxes_x_pos[i] << " " << boxes_y_pos[i] << " " << boxes_z_pos[i] << " "
-			<< "orient:"
-			<< boxes_x_orient[i] << " " << boxes_y_orient[i] << " " << boxes_z_orient[i] << " "
-			<< std::endl;
-			
+/*			cout
+				<< "No." << boxes_item_num[i] << ", " 
+				<< "bin_num:" << boxes_bin_num[i] << ", " 
+				<< "whd:" << boxes_w[i] << "x" << boxes_h[i] << "x" << boxes_d[i] << ", " 
+				<< "pos:" << boxes_x_pos[i] << "," << boxes_y_pos[i] << "," << boxes_z_pos[i] << ", " 
+				<< "orient:" << boxes_x_orient[i] << "," << boxes_y_orient[i] << "," << boxes_z_orient[i] << ", "
+				<< endl;
+*/			
 			if (boxes_bin_num[i] != 1)
 			{
 				item_not_fit++;
@@ -460,6 +518,7 @@ void MainWindow::PressedReset()
 void MainWindow::PressedShowOrder()
 {
 	//show animation?
+	ui->widget->ShowFirstNumber();
 }
 void MainWindow::PressedPreviousOrder()
 {

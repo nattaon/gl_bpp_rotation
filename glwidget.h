@@ -32,6 +32,7 @@ public:
 		int *bin_no, int *item_no);
 	void IncreaseShowNumber();
 	void DecreaseShowNumber();
+	void ShowFirstNumber();
 
 
 

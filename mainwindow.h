@@ -46,13 +46,13 @@ private:
 	int last_select_item_index;
 
 	float *color_rgb;
-	int *boxes_w, *boxes_h, *boxes_d;
+/*	int *boxes_w, *boxes_h, *boxes_d;
 	int *boxes_r, *boxes_g, *boxes_b;
-	vector<string> boxes_name;
-	int *boxes_x_pos, *boxes_y_pos, *boxes_z_pos;
+	vector<string> boxes_name;*/
+/*	int *boxes_x_pos, *boxes_y_pos, *boxes_z_pos;
 	int *boxes_x_orient, *boxes_y_orient, *boxes_z_orient;
 	int *boxes_bin_num;
-	int *boxes_item_num;
+	int *boxes_item_num;*/
 
 	CalculateBppErhan *binpack;
 	ReadWriteFile *txtfile;
@@ -65,13 +65,15 @@ private:
     int GetNodeLimit();
     int GetIterLimit();
     int GetTimeLimit();
-
-	/*void GetBoxesInfoFromUI(
-		int *boxes_w, int *boxes_h, int *boxes_d,
-		vector<string> boxes_name,
-		int *boxes_r, int *boxes_g, int *boxes_b);
-		*/
+	/*
+	void CopyBoxesInfoFromUI(
+		int **_boxes_w, int **_boxes_h, int **_boxes_d,
+		vector<string> _boxes_name,
+		int **_boxes_r, int **_boxes_g, int **_boxes_b);
+		
 	void GetBoxesInfoFromUI();
+*/
+
 	void InitialBoxedPacking();
 
 	void AddNewIntItemToList(int item1, int item2, int item3, string name, int r, int g, int b);
