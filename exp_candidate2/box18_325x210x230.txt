@@ -1,0 +1,20 @@
+325 210 230
+18
+159 96 63 (215,149,113)//02brown_chocolasenu
+165 112 52 (225,229,163)//03yellow_rascre
+160 95 60 (82,54,41)//04brown_7-11cookies
+168 99 52 (233,91,174)//05pink_zackkey
+160 95 60 (187,37,33)//06pink_rufier
+158 95 60 (22,50,222)//07blue_moonlight
+160 112 51 (243,189,48)//09white_dasses
+158 98 63 (65,199,228)//15blue_collon
+154 88 27 (188,181,76)//16yellow_macadamia
+155 85 24 (222,20,15)//18red_macadamia
+160 90 24 (245,46,30)//25red_pocky
+115 50 30 (11,124,111)//29green_snowman
+113 97 49 (52,208,239)//31blue_minicollon
+111 111 52 (235,226,132)//33white_meltykiss
+205 50 50 (109,63,54)//43brown_choco
+170 77 15 (183,228,248)//47white_alfort
+203 97 53 (207,189,150)//51white_shriver
+200 163 60 (224,210,163)//53white_tokyobanana

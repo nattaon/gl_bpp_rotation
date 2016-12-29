@@ -1,0 +1,20 @@
+300 140 300
+18
+160 95 60 (82,54,41)//04brown_7-11cookies
+160 95 60 (187,37,33)//06pink_rufier
+160 112 51 (243,189,48)//09white_dasses
+160 112 51 (243,189,48)//10white_dasses
+144 118 48 (98,230,56)//11green_pienomi
+154 88 27 (188,181,76)//16yellow_macadamia
+154 88 27 (188,181,76)//17yellow_macadamia
+150 89 30 (231,223,24)//19yellow_kinoko
+150 89 30 (72,191,61)//20green_kinoko
+161 85 29 (0,181,53)//21green_pretz
+161 85 29 (0,181,53)//22green_pretz
+161 85 29 (0,181,53)//23green_pretz
+161 85 29 (242,41,26)//24red_pretz
+160 90 24 (245,46,30)//25red_pocky
+163 90 25 (246,245,184)//27white_fran
+115 50 30 (11,124,111)//29green_snowman
+113 97 49 (52,208,239)//31blue_minicollon
+138 122 90 (150,121,135)//42brown_hokkaidopoteto

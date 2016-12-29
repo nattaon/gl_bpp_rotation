@@ -59,8 +59,8 @@ void CalculateBppErhan::CalculateBinpack(
 
 	cout << endl << "SortBoxesOrder();" << endl;
 
-	SortBoxesOrder();
-	InvertBoxesOrder();
+	//SortBoxesOrder();
+	//InvertBoxesOrder();
 
 	//printboxes_array();
 }

@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QFileDialog>
 #include <QTreeWidgetItem>
+#include <QKeyEvent>
 
 #include <vector>
 
@@ -23,6 +24,8 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 	//void mousePressEvent(QMouseEvent *event);
+	void keyPressEvent(QKeyEvent * event);
+//	bool eventFilter(QObject *object, QEvent *event);
 	
 
 private slots:

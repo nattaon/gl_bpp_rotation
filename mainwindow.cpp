@@ -70,7 +70,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	txtfile = new ReadWriteFile();
 	
 	//LoadBPPFileToUI("C:/Users/nattaon2/Desktop/gl_bpp_rotation/box_all.txt");
-	LoadBPPFileToUI("C:/Users/Nattaon/Desktop/qt_bpp_rotate/box_22.txt");
+	LoadBPPFileToUI("C:/Users/Nattaon/Desktop/qt_bpp_rotate/box_all2.txt");
 
 	ui->widget->SetInitialBin(GetBinWidth(), GetBinHeight(), GetBinDepth());
 	ui->treeWidget->header()->resizeSection(0, 45);//No
@@ -81,8 +81,42 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->treeWidget->header()->resizeSection(5, 45);//r
 	ui->treeWidget->header()->resizeSection(6, 45);//g
 	ui->treeWidget->header()->resizeSection(7, 45);//b
+
+
+	//QApplication::instance()->installEventFilter(this);
+}	
+	/*	
+bool MainWindow::eventFilter(QObject *object, QEvent *event) {
+	if (event->type() == QEvent::KeyRelease) {
+		QKeyEvent* key_event = static_cast<QKeyEvent*>(event);
+	cout << "key" << key_event->key() << "object" << object <<endl;
+		if (key_event->key() == Qt::Key_Right)
+		{
+			PressedNextOrder();
+		}
+		else if (key_event->key() == Qt::Key_Left)
+		{
+			PressedPreviousOrder();
+		}
+	}
+	return false;
+}*/
+void MainWindow::keyPressEvent(QKeyEvent * event)
+{
+	//after opengl show boxes, this function is not working tooo!!!!
+	//solve: set ui as nofocus
+	cout << "MainWindow event->key() " << event->key() << endl;
+	if (event->key() == Qt::Key_Right)
+	{
+		PressedNextOrder();
+	}
+	else if (event->key() == Qt::Key_Left)
+	{
+		PressedPreviousOrder();
+	}
 	
 }
+
 void MainWindow::AddNewIntItemToList(int item1, int item2, int item3, string name, int r, int g, int b)
 {
 	int total_boxes = ui->treeWidget->topLevelItemCount();
@@ -443,7 +477,7 @@ void MainWindow::PressedBinPacking()
 	cout << endl;
 	cout << "output get" << endl;
 		// check if use bin >1
-		int item_not_fit = 0;
+		int item_fit = 0;
 		for (int i = 0; i < total_boxes; i++)
 		{
 /*			cout
@@ -454,14 +488,14 @@ void MainWindow::PressedBinPacking()
 				<< "orient:" << boxes_x_orient[i] << "," << boxes_y_orient[i] << "," << boxes_z_orient[i] << ", "
 				<< endl;
 */			
-			if (boxes_bin_num[i] != 1)
+			if (boxes_bin_num[i] == 1)
 			{
-				item_not_fit++;
+				item_fit++;
 			}
 
 		}
 		cout << endl;
-		cout << "packed " << total_boxes - item_not_fit << "/" << total_boxes << endl;
+		cout << "packed " << item_fit << "/" << total_boxes << endl;
 		/*
 		if (item_not_fit != 0)
 		{
@@ -482,9 +516,18 @@ void MainWindow::PressedBinPacking()
 			boxes_bin_num, boxes_item_num);
 
 
-		for (int i = total_boxes - 1; i >= 0; i--)
+		for (int i =0; i < total_boxes; i++)
 		{
 			QTreeWidgetItem *item = ui->treeWidget->topLevelItem(i);
+			/*item->setText(0, QString::number(boxes_item_num[i]));
+			item->setText(1, QString::number(boxes_w[i]));
+			item->setText(2, QString::number(boxes_h[i]));
+			item->setText(3, QString::number(boxes_d[i]));
+			item->setText(4, QString::fromStdString("-"));
+			item->setText(5, QString::number(boxes_r[i]));
+			item->setText(6, QString::number(boxes_g[i]));
+			item->setText(7, QString::number(boxes_b[i]));*/
+
 			if (boxes_bin_num[i] == 1)//pack
 			{
 				item->setBackgroundColor(0, QColor(item->text(5).toInt(), item->text(6).toInt(), item->text(7).toInt()));
@@ -519,14 +562,17 @@ void MainWindow::PressedShowOrder()
 {
 	//show animation?
 	ui->widget->ShowFirstNumber();
+	ui->label_order->setText(QString::number(ui->widget->show_number));
 }
 void MainWindow::PressedPreviousOrder()
 {
 	ui->widget->DecreaseShowNumber();
+	ui->label_order->setText(QString::number(ui->widget->show_number));
 }
 void MainWindow::PressedNextOrder()
 {
 	ui->widget->IncreaseShowNumber();
+	ui->label_order->setText(QString::number(ui->widget->show_number));
 }
 
 

@@ -263,6 +263,7 @@ void execute_iterations(void)
         break;
     }
 
+
     list_candidate_layers();
     layers[0].layereval = -1;
 	cout << "layers " << layers << endl;

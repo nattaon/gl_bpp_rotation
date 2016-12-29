@@ -1,0 +1,24 @@
+300 140 300
+22
+157 95 60 (179,115,69)//01brown_chocochip
+159 96 63 (215,149,113)//02brown_chocolasenu
+158 95 60 (22,50,222)//07blue_moonlight
+158 95 60 (22,50,222)//08blue_moonlight
+158 98 63 (65,199,228)//15blue_collon
+154 88 27 (188,181,76)//16yellow_macadamia
+154 88 27 (188,181,76)//17yellow_macadamia
+155 85 24 (222,20,15)//18red_macadamia
+150 89 30 (231,223,24)//19yellow_kinoko
+150 89 30 (72,191,61)//20green_kinoko
+160 90 24 (245,46,30)//25red_pocky
+163 90 25 (246,245,184)//27white_fran
+115 50 30 (11,124,111)//29green_snowman
+106 84 35 (226,194,15)//30yellow_teddybear
+95 46 19 (246,184,82)//35orange_chocoball
+95 46 19 (243,117,210)//36pink_chocoball
+70 45 45 (48,171,126)//37green_pikachu
+50 50 50 (237,128,181)//38pink_christmasbox
+40 40 40 (247,247,85)//39yellow_christmasbox
+138 122 90 (150,121,135)//42brown_hokkaidopoteto
+205 50 50 (109,63,54)//43brown_choco
+170 77 15 (183,228,248)//47white_alfort

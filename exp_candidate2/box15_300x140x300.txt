@@ -1,0 +1,17 @@
+300 140 300
+15
+159 96 63 (215,149,113)//02brown_chocolasenu
+160 95 60 (82,54,41)//04brown_7-11cookies
+160 95 60 (187,37,33)//06pink_rufier
+230 114 37 (243,220,179)//13white_hokkaidowhite
+150 89 30 (231,223,24)//19yellow_kinoko
+160 90 24 (245,46,30)//25red_pocky
+165 79 21 (50,98,216)//26blue_starwar
+163 90 25 (246,245,184)//27white_fran
+115 50 30 (11,124,111)//29green_snowman
+106 84 35 (226,194,15)//30yellow_teddybear
+113 97 49 (52,208,239)//31blue_minicollon
+116 95 35 (43,226,249)//34blue_milky
+85 75 69 (251,250,144)//40yellow_chamomile
+203 97 53 (207,189,150)//51white_shriver
+163 163 39 (252,223,229)//52white_daifuku

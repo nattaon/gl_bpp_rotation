@@ -4,6 +4,7 @@
 
 #include <QtOpenGL/QGLWidget>
 #include <QMouseEvent>
+#include <QKeyEvent>
 
 class GLWidget : public QGLWidget
 {
@@ -19,6 +20,7 @@ public:
 	void mousePressEvent(QMouseEvent *event);
 	void mouseMoveEvent(QMouseEvent *event);
 	void wheelEvent(QWheelEvent *event);
+	void keyPressEvent(QKeyEvent * event);
 
 
     void SetInitialBin(int binW, int binH,int binD);
@@ -33,7 +35,7 @@ public:
 	void IncreaseShowNumber();
 	void DecreaseShowNumber();
 	void ShowFirstNumber();
-
+	int show_number;
 
 
 public slots:
@@ -74,7 +76,7 @@ private:
 	int *boxes_binno, *boxes_itemno;
 	int axis_length;
 
-	int show_number;
+	
 
 	bool is_show_binpacking;
 

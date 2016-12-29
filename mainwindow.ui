@@ -49,6 +49,9 @@
       <family>Calibri</family>
      </font>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
     <property name="text">
      <string>150</string>
     </property>
@@ -56,7 +59,7 @@
    <widget class="QPushButton" name="bt_binpacking">
     <property name="geometry">
      <rect>
-      <x>540</x>
+      <x>580</x>
       <y>40</y>
       <width>75</width>
       <height>23</height>
@@ -66,6 +69,9 @@
      <font>
       <family>Calibri</family>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="text">
      <string>Binpacking</string>
@@ -85,6 +91,9 @@
       <family>Calibri</family>
      </font>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
     <property name="text">
      <string>Load</string>
     </property>
@@ -92,7 +101,7 @@
    <widget class="QPushButton" name="bt_showorder">
     <property name="geometry">
      <rect>
-      <x>700</x>
+      <x>770</x>
       <y>40</y>
       <width>71</width>
       <height>23</height>
@@ -105,6 +114,9 @@
       <bold>false</bold>
      </font>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
     <property name="text">
      <string>Show Order</string>
     </property>
@@ -112,7 +124,7 @@
    <widget class="QPushButton" name="bt_next_order">
     <property name="geometry">
      <rect>
-      <x>780</x>
+      <x>850</x>
       <y>40</y>
       <width>16</width>
       <height>23</height>
@@ -124,6 +136,9 @@
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="text">
      <string>&gt;</string>
@@ -143,6 +158,9 @@
       <family>Calibri</family>
      </font>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
     <property name="text">
      <string>110</string>
     </property>
@@ -161,6 +179,9 @@
       <family>Calibri</family>
      </font>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
     <property name="text">
      <string>Box size(w*h*d)</string>
     </property>
@@ -173,6 +194,9 @@
       <width>500</width>
       <height>500</height>
      </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
    </widget>
    <widget class="QPushButton" name="bt_remove">
@@ -188,6 +212,9 @@
      <font>
       <family>Calibri</family>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="text">
      <string>Remove</string>
@@ -207,6 +234,9 @@
       <family>Calibri</family>
      </font>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
     <property name="text">
      <string>50</string>
     </property>
@@ -214,7 +244,7 @@
    <widget class="QPushButton" name="bt_previous_order">
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>750</x>
       <y>40</y>
       <width>16</width>
       <height>23</height>
@@ -226,6 +256,9 @@
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="text">
      <string>&lt;</string>
@@ -245,6 +278,9 @@
       <family>Calibri</family>
      </font>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
     <property name="text">
      <string>Add</string>
     </property>
@@ -262,6 +298,9 @@
      <font>
       <family>Calibri</family>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="text">
      <string>Save</string>
@@ -281,6 +320,9 @@
       <family>Calibri</family>
      </font>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
     <property name="text">
      <string>Clear All</string>
     </property>
@@ -288,7 +330,7 @@
    <widget class="QLineEdit" name="in_bin_d">
     <property name="geometry">
      <rect>
-      <x>400</x>
+      <x>420</x>
       <y>40</y>
       <width>31</width>
       <height>20</height>
@@ -298,6 +340,9 @@
      <font>
       <family>Calibri</family>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="text">
      <string>225</string>
@@ -306,7 +351,7 @@
    <widget class="QLineEdit" name="in_bin_h">
     <property name="geometry">
      <rect>
-      <x>370</x>
+      <x>390</x>
       <y>40</y>
       <width>31</width>
       <height>20</height>
@@ -317,6 +362,9 @@
       <family>Calibri</family>
      </font>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
     <property name="text">
      <string>220</string>
     </property>
@@ -324,7 +372,7 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>250</x>
+      <x>270</x>
       <y>40</y>
       <width>91</width>
       <height>20</height>
@@ -335,6 +383,9 @@
       <family>Calibri</family>
      </font>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
     <property name="text">
      <string>Bin size(w*h*d)</string>
     </property>
@@ -342,7 +393,7 @@
    <widget class="QLineEdit" name="in_bin_w">
     <property name="geometry">
      <rect>
-      <x>340</x>
+      <x>360</x>
       <y>40</y>
       <width>31</width>
       <height>20</height>
@@ -352,6 +403,9 @@
      <font>
       <family>Calibri</family>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="text">
      <string>330</string>
@@ -383,6 +437,9 @@
       <family>Calibri</family>
       <pointsize>8</pointsize>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="verticalScrollBarPolicy">
      <enum>Qt::ScrollBarAlwaysOn</enum>
@@ -534,6 +591,9 @@
       <family>Calibri</family>
      </font>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
     <property name="text">
      <string>mm</string>
     </property>
@@ -541,7 +601,7 @@
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>430</x>
+      <x>450</x>
       <y>40</y>
       <width>25</width>
       <height>23</height>
@@ -552,6 +612,9 @@
       <family>Calibri</family>
      </font>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
     <property name="text">
      <string>mm</string>
     </property>
@@ -559,7 +622,7 @@
    <widget class="QPushButton" name="bt_reset">
     <property name="geometry">
      <rect>
-      <x>620</x>
+      <x>670</x>
       <y>40</y>
       <width>50</width>
       <height>23</height>
@@ -570,6 +633,9 @@
       <family>Calibri</family>
      </font>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
     <property name="text">
      <string>Reset</string>
     </property>
@@ -577,7 +643,7 @@
    <widget class="QComboBox" name="comboBox_packMethod">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>490</x>
       <y>40</y>
       <width>75</width>
       <height>22</height>
@@ -587,6 +653,9 @@
      <font>
       <family>Calibri</family>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <item>
      <property name="text">
@@ -613,6 +682,9 @@
       <family>Calibri</family>
      </font>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
     <property name="text">
      <string>nodelimit</string>
     </property>
@@ -630,6 +702,9 @@
      <font>
       <family>Calibri</family>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="text">
      <string>0</string>
@@ -652,6 +727,9 @@
       <family>Calibri</family>
      </font>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
     <property name="text">
      <string>iterlimit</string>
     </property>
@@ -669,6 +747,9 @@
      <font>
       <family>Calibri</family>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="text">
      <string>0</string>
@@ -691,6 +772,9 @@
       <family>Calibri</family>
      </font>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
     <property name="text">
      <string>timelimit</string>
     </property>
@@ -708,6 +792,9 @@
      <font>
       <family>Calibri</family>
      </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
     </property>
     <property name="text">
      <string>1</string>
@@ -730,6 +817,9 @@
       <family>Calibri</family>
      </font>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
     <property name="text">
      <string>sec</string>
     </property>
@@ -748,8 +838,36 @@
       <family>Calibri</family>
      </font>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
     <property name="text">
      <string>filename</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_order">
+    <property name="geometry">
+     <rect>
+      <x>780</x>
+      <y>20</y>
+      <width>51</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>

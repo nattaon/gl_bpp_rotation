@@ -3,6 +3,7 @@
 
 #include <GL/glut.h>
 #include <iostream>
+using namespace std;
 
 static GLfloat light_ambient[] = { 0.0, 0.0, 0.0, 1.0 };
 static GLfloat light_diffuse[] = { 1.0, 1.0, 1.0, 1.0 };
@@ -18,6 +19,22 @@ GLWidget::GLWidget(QWidget *parent):
     QGLWidget(parent)
 {
 	ResetWindow();
+
+}
+void GLWidget::keyPressEvent(QKeyEvent * event)
+{
+	//after opengl show boxes, this function is not working tooo!!!!
+
+	cout << "GLWidget event->key() " << event->key() << endl;
+	if (event->key() == Qt::Key_Right)
+	{
+		IncreaseShowNumber();
+	}
+	else if (event->key() == Qt::Key_Left)
+	{
+		DecreaseShowNumber();
+	}
+
 
 }
 void GLWidget::initializeGL()
