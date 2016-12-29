@@ -24,12 +24,21 @@ void CalculateBppErhan::CalculateBinpack(
 	int *orien_x, int *orien_y, int *orien_z,
 	int *bin_no, int *item_no)
 {
+
+
 	binpacking(total_box_to_pack,
 		bin_w, bin_h, bin_d,
 		box_w, box_h, box_d,
 		box_x, box_y, box_z,
 		orien_x, orien_y, orien_z,
 		bin_no, item_no);
+
+	x = box_x;
+	y = box_y;
+	z = box_z;
+	bno = bin_no;
+
+	//SortBoxesOrder();
 }
 
 void CalculateBppErhan::SortBoxesOrder()

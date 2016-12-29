@@ -5,6 +5,8 @@
 #include <QFileDialog>
 #include <QTreeWidgetItem>
 
+#include <vector>
+
 #include "glwidget.h"
 #include "CalculateBppErhan.h"
 #include "readwritefile.h"
@@ -44,9 +46,9 @@ private:
 	int last_select_item_index;
 
 	float *color_rgb;
-	int total_boxes;
-	int bin_w, bin_h, bin_d;
 	int *boxes_w, *boxes_h, *boxes_d;
+	int *boxes_r, *boxes_g, *boxes_b;
+	vector<string> boxes_name;
 	int *boxes_x_pos, *boxes_y_pos, *boxes_z_pos;
 	int *boxes_x_orient, *boxes_y_orient, *boxes_z_orient;
 	int *boxes_bin_num;
@@ -64,10 +66,15 @@ private:
     int GetIterLimit();
     int GetTimeLimit();
 
-	void GetBoxesSize();
+	/*void GetBoxesInfoFromUI(
+		int *boxes_w, int *boxes_h, int *boxes_d,
+		vector<string> boxes_name,
+		int *boxes_r, int *boxes_g, int *boxes_b);
+		*/
+	void GetBoxesInfoFromUI();
 	void InitialBoxedPacking();
 
-	void AddNewIntItemToList(int item1, int item2, int item3, string name);
+	void AddNewIntItemToList(int item1, int item2, int item3, string name, int r, int g, int b);
     void AddNewStringItemToList(QString item1, QString item2, QString item3);
 
 

@@ -19,7 +19,6 @@ GLWidget::GLWidget(QWidget *parent):
 {
 	ResetWindow();
 
-	Color = new MyColor();
 }
 void GLWidget::initializeGL()
 {
@@ -239,6 +238,7 @@ void GLWidget::SetShowBinpacking(
 	int binW, int binH, int binD,
 	int *w, int *h, int *d,
 	int *x, int *y, int *z,
+	int *r, int *g, int *b,
 	int *bin_no, int *item_no)
 {
 	is_show_binpacking = true;
@@ -259,6 +259,10 @@ void GLWidget::SetShowBinpacking(
 	boxes_x = x;
 	boxes_y = y;
 	boxes_z = z;
+
+	boxes_r = r;
+	boxes_g = g;
+	boxes_b = b;
 
 	boxes_binno = bin_no;
 	boxes_itemno = item_no;
@@ -333,10 +337,9 @@ void GLWidget::DrawBoxes()
 	
 	for (int i = 0; i < show_number; i++)
 	{
-		color_rgb=Color->GetColorIndex(i);
 		if (boxes_binno[i]==1)//pack
 		{ 
-			glColor3d(color_rgb[0], color_rgb[1], color_rgb[2]);
+			glColor3d(boxes_r[i]/255.0, boxes_g[i]/255.0, boxes_b[i]/255.0);
 			DrawRectangle(boxes_x[i], boxes_y[i], boxes_z[i], boxes_w[i], boxes_h[i], boxes_d[i]);
 		}
 		else // not pack

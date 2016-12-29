@@ -50,6 +50,11 @@ void ReadWriteFile::OpenTxtFileBoxes(string filename)
 	color_g = new int[total_boxes];
 	color_b = new int[total_boxes];
 
+	boxes_name.clear();
+	if (boxes_name.size() != 0)
+	{
+		cout << "\n !!!ReadWriteFile::OpenTxtFileBoxes  boxes_name.size() != 0" << endl;
+	}
 
 	for (int i = 0; i < total_boxes; i++)
 	{
@@ -90,6 +95,13 @@ void ReadWriteFile::OpenTxtFileBoxes(string filename)
 			//cout << index5 << ":" << sLine3.substr(index5 + 3) << endl;
 			
 		}
+		else
+		{
+			boxes_name.push_back("-");
+			color_r[i] = (rand() % 128 + 128);
+			color_g[i] = (rand() % 128 + 128);
+			color_b[i] = (rand() % 128 + 128);
+		}
 
 
 
@@ -100,7 +112,9 @@ void ReadWriteFile::OpenTxtFileBoxes(string filename)
 }
 void ReadWriteFile::SaveTxtFileBoxes(string filename, int total,
 	int bin_width, int bin_height, int bin_depth,
-	int *width, int *height, int *depth)
+	int *width, int *height, int *depth,
+	vector<string> name,
+	int *r, int *g, int *b)
 {
 	cout << "SaveTxtFileBoxes" << endl;
 	
@@ -113,7 +127,9 @@ void ReadWriteFile::SaveTxtFileBoxes(string filename, int total,
 
 	for (int i = 0; i < total; i++)
 	{
-		outfile << width[i] << " " << height[i] << " " << depth[i] << endl;
+		outfile << width[i] << " " << height[i] << " " << depth[i] << " ";// endl;
+		outfile << "(" << r[i] << "," << g[i] << "," << b[i] << ")";
+		outfile << "//" << name.at(i) << endl;
 	}
 
 

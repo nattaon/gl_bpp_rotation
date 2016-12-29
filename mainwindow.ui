@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>900</width>
     <height>600</height>
    </rect>
   </property>
@@ -168,7 +168,7 @@
    <widget class="GLWidget" name="widget" native="true">
     <property name="geometry">
      <rect>
-      <x>290</x>
+      <x>390</x>
       <y>70</y>
       <width>500</width>
       <height>500</height>
@@ -362,7 +362,7 @@
      <rect>
       <x>10</x>
       <y>70</y>
-      <width>271</width>
+      <width>371</width>
       <height>451</height>
      </rect>
     </property>
@@ -418,13 +418,13 @@
      <bool>true</bool>
     </attribute>
     <attribute name="headerDefaultSectionSize">
-     <number>50</number>
+     <number>40</number>
     </attribute>
     <attribute name="headerHighlightSections">
      <bool>false</bool>
     </attribute>
     <attribute name="headerMinimumSectionSize">
-     <number>50</number>
+     <number>40</number>
     </attribute>
     <attribute name="headerShowSortIndicator" stdset="0">
      <bool>false</bool>
@@ -490,6 +490,30 @@
     <column>
      <property name="text">
       <string>Name</string>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>r</string>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>g</string>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>b</string>
      </property>
      <property name="textAlignment">
       <set>AlignCenter</set>

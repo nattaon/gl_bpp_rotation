@@ -10,7 +10,9 @@ public:
 	void OpenTxtFileBoxes(string filename);
 	void SaveTxtFileBoxes(string filename, int total,
 		int bin_width, int bin_height, int bin_depth,
-		int *width, int *height, int *depth);
+		int *width, int *height, int *depth,
+		vector<string> name,
+		int *r, int *g, int *b);
 
 	int GetTotalBox();
 	int GetBinWidth();

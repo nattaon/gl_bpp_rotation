@@ -28,11 +28,12 @@ public:
 		int binW, int binH,int binD, 
 		int *w, int *h, int *d, 
 		int *x, int *y, int *z,
+		int *r, int *g, int *b,
 		int *bin_no, int *item_no);
 	void IncreaseShowNumber();
 	void DecreaseShowNumber();
 
-	MyColor *Color;
+
 
 public slots:
 	// slots for xyz-rotation slider
@@ -61,14 +62,14 @@ private:
 	float zoom;
 	QPoint lastPos;
 
-	
-	float *color_rgb;
+
 
 
 	int total_boxes;
 	int bin_w, bin_h, bin_d;
 	int *boxes_w, *boxes_h, *boxes_d;
 	int *boxes_x, *boxes_y, *boxes_z;
+	int *boxes_r, *boxes_g, *boxes_b;
 	int *boxes_binno, *boxes_itemno;
 	int axis_length;
 
