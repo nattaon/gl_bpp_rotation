@@ -67,17 +67,15 @@ MainWindow::MainWindow(QWidget *parent) :
 	connect(ui->bt_next_order, SIGNAL(pressed()), this, SLOT(PressedNextOrder()));
 
 
-
-
-
     binpack = new CalculateBppErhan();
 	txtfile = new ReadWriteFile();
-
-	LoadBPPFileToUI("C:/Users/Nattaon/Desktop/qt_bpp_rotate/box10.txt");
+	
+	LoadBPPFileToUI("C:/Users/nattaon2/Desktop/gl_bpp_rotation/box_all.txt");
+	//LoadBPPFileToUI("C:/Users/Nattaon/Desktop/qt_bpp_rotate/box10.txt");
 
 	ui->widget->SetInitialBin(GetBinWidth(), GetBinHeight(), GetBinDepth());
 }
-void MainWindow::AddNewIntItemToList(int item1,int item2,int item3)
+void MainWindow::AddNewIntItemToList(int item1,int item2,int item3,string name)
 {
 	
 	QTreeWidgetItem *item = new QTreeWidgetItem(ui->treeWidget);
@@ -87,6 +85,7 @@ void MainWindow::AddNewIntItemToList(int item1,int item2,int item3)
 	item->setText(1, QString::number(item1));
 	item->setText(2, QString::number(item2));
 	item->setText(3, QString::number(item3));
+	item->setText(4, QString::fromStdString(name));
 
 	item->setTextAlignment(0, Qt::AlignHCenter);
 	item->setTextAlignment(1, Qt::AlignHCenter);
@@ -239,30 +238,28 @@ void MainWindow::LoadBPPFileToUI(string filename)
 
 	txtfile->OpenTxtFileBoxes(filename);
 
-	int total_boxes_from_txt = txtfile->GetTotalBox();
+	//PressedClearAll();
 
-	int bin_w_from_txt = txtfile->GetBinWidth();
-	int bin_h_from_txt = txtfile->GetBinHeight();
-	int bin_d_from_txt = txtfile->GetBinDepth();
-
-	int *boxes_w_from_txt = txtfile->GetBoxesWidth();
-	int *boxes_h_from_txt = txtfile->GetBoxesHeight();
-	int *boxes_d_from_txt = txtfile->GetBoxesDepth();
-	std::cout << "Got total_boxes: " << total_boxes_from_txt << std::endl;
-
-	PressedClearAll();
-
-	ui->in_bin_w->setText(QString::number(bin_w_from_txt));
-	ui->in_bin_h->setText(QString::number(bin_h_from_txt));
-	ui->in_bin_d->setText(QString::number(bin_d_from_txt));
+	ui->in_bin_w->setText(QString::number(txtfile->bin_w));
+	ui->in_bin_h->setText(QString::number(txtfile->bin_h));
+	ui->in_bin_d->setText(QString::number(txtfile->bin_d));
 
 
-
-	for (int i = 0; i < total_boxes_from_txt; i++)
+	for (int i = 0; i < txtfile->total_boxes; i++)
 	{
-		AddNewIntItemToList(boxes_w_from_txt[i], boxes_h_from_txt[i], boxes_d_from_txt[i]);
+		AddNewIntItemToList(
+			txtfile->boxes_w[i], 
+			txtfile->boxes_h[i], 
+			txtfile->boxes_d[i],
+			txtfile->boxes_name.at(i));
+
 		//AddNewIntItemToList(boxes_w[i], boxes_h[i], boxes_d[i]);
 	}
+	ui->widget->Color->SetColor(
+		txtfile->total_boxes,
+		txtfile->color_r,
+		txtfile->color_g,
+		txtfile->color_b);
 }
 
 void MainWindow::PressedSaveDb()
@@ -290,7 +287,10 @@ void MainWindow::PressedClearAll()
 
 void MainWindow::PressedBinPacking()
 {
-
+	if (ui->widget->Color->is_color_set == false)
+	{
+		ui->widget->Color->SetRandomColor();
+	}
 	//0.set packing type
 	//std::cout << "packtype " << ui->comboBox_packMethod->currentIndex() << std::endl;
 	//binpack->SetPackingType(ui->comboBox_packMethod->currentIndex());
@@ -365,7 +365,7 @@ void MainWindow::PressedBinPacking()
 		}
 		//remove remain boxes
 
-		//binpack->SortBoxesOrder();
+		binpack->SortBoxesOrder();
 
 		ui->widget->SetShowBinpacking(
 			total_boxes,

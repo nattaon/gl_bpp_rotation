@@ -67,7 +67,7 @@ private:
 	void GetBoxesSize();
 	void InitialBoxedPacking();
 
-    void AddNewIntItemToList(int item1, int item2, int item3);
+	void AddNewIntItemToList(int item1, int item2, int item3, string name);
     void AddNewStringItemToList(QString item1, QString item2, QString item3);
 
 

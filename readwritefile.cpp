@@ -17,15 +17,12 @@ void ReadWriteFile::OpenTxtFileBoxes(string filename)
 		return;
 	}
 
-	string sLine,sLine2,sLine3;
+	string sLine, sLine2, sLine3, sLine4, sLine5, sLine6;
 
 	//1.get bin size
 
 
-	int index1 = 0;
-	int index2 = 0;
-	int index3 = 0;
-	int index4 = 0;
+	int index1, index2, index3, index4, index5, index6, index7;
 	
 	getline(infile, sLine);
 	index1 = sLine.find(" ");
@@ -45,47 +42,59 @@ void ReadWriteFile::OpenTxtFileBoxes(string filename)
 
 
 	//3.get array of boxes
-	int *boxes_width = new int[total_boxes];
-	int *boxes_height = new int[total_boxes];
-	int *boxes_depth = new int[total_boxes];
+	boxes_w = new int[total_boxes];
+	boxes_h = new int[total_boxes];
+	boxes_d = new int[total_boxes];
 
+	color_r = new int[total_boxes];
+	color_g = new int[total_boxes];
+	color_b = new int[total_boxes];
 
-
-	int c_width, c_height, c_depth;
 
 	for (int i = 0; i < total_boxes; i++)
 	{
 		
 
 		//cout << "sLine=" << sLine << "*" << endl;
-
+		//157 95 60 (179,115,69)//01brown_chocoship
 		getline(infile, sLine);
 		index1 = sLine.find(" ");
-		c_width = stod(sLine.substr(0, index1));
+		boxes_w[i] = stod(sLine.substr(0, index1));
 
 		sLine2 = sLine.substr(index1 + 1);
 		index2 = sLine2.find(" ");
-		c_height = stod(sLine2.substr(0, index2));
+		boxes_h[i] = stod(sLine2.substr(0, index2));
 
 		sLine3 = sLine2.substr(index2 + 1);
 		index3 = sLine3.find(" ");
-		c_depth = stod(sLine3.substr(0, index3));
+		boxes_d[i] = stod(sLine3.substr(0, index3));
 
-		index4 = sLine3.find("//");
-		if (index4!=-1)
-		{ 
-			//cout << index4 << ":" << sLine3.substr(index4 + 2) << endl;
+
+		index4 = sLine3.find('(');
+		index5 = sLine3.find(')');
+		if (index4 != -1 )//has color value
+		{		
+			boxes_name.push_back(sLine3.substr(index5+3));
+
+
+			sLine4 = sLine3.substr(index4 + 1, index5 - index4 -1);
+			//cout << "sLine4=" << sLine4 << endl;
+			index6 = sLine4.find(',');
+			index7 = sLine4.find_last_of(',');
+			//cout << "index6=" << index6 << endl;
+			//cout << "index7=" << index7 << endl;
+			color_r[i] = stod(sLine4.substr(0, index6));
+			color_g[i] = stod(sLine4.substr(index6 + 1, index7 - index6 - 1));
+			color_b[i] = stod(sLine4.substr(index7 + 1));
+
+			//cout << index5 << ":" << sLine3.substr(index5 + 3) << endl;
+			
 		}
-		//cout << i << ":" << c_width << "," << c_height << "," << c_depth << endl;
 
-		boxes_width[i] = c_width;
-		boxes_height[i] = c_height;
-		boxes_depth[i] = c_depth;
+
 
 	}
-	boxes_w = boxes_width; //save value in this class parameter
-	boxes_h = boxes_height;
-	boxes_d = boxes_depth;
+
 
 
 }
