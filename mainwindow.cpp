@@ -58,6 +58,8 @@ MainWindow::MainWindow(QWidget *parent) :
 	connect(ui->bt_load, SIGNAL(pressed()), this, SLOT(PressedLoadDb()));
 	connect(ui->bt_save, SIGNAL(pressed()), this, SLOT(PressedSaveDb()));
 	connect(ui->bt_clearall, SIGNAL(pressed()), this, SLOT(PressedClearAll()));
+	connect(ui->bt_moveup, SIGNAL(pressed()), this, SLOT(PressedMoveUp()));
+	connect(ui->bt_movedown, SIGNAL(pressed()), this, SLOT(PressedMoveDown()));
 
 	connect(ui->bt_binpacking, SIGNAL(pressed()), this, SLOT(PressedBinPacking()));
     connect(ui->bt_reset, SIGNAL(pressed()), this, SLOT(PressedReset()));
@@ -117,7 +119,32 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
 	}
 	
 }*/
-
+void MainWindow::PressedMoveUp()
+{
+	QTreeWidgetItem* item = ui->treeWidget->currentItem();
+	int row = ui->treeWidget->currentIndex().row();
+	
+	if (row > 0)
+	{
+		ui->treeWidget->takeTopLevelItem(row);
+		ui->treeWidget->insertTopLevelItem(row - 1, item);
+		ui->treeWidget->setCurrentItem(item);
+		last_select_item_index = row - 1;
+	}
+}
+void MainWindow::PressedMoveDown()
+{
+	QTreeWidgetItem* item = ui->treeWidget->currentItem();
+	int row = ui->treeWidget->currentIndex().row();
+	int total_boxes = ui->treeWidget->topLevelItemCount();
+	if (row < total_boxes-1)
+	{
+		ui->treeWidget->takeTopLevelItem(row);
+		ui->treeWidget->insertTopLevelItem(row +1, item);
+		ui->treeWidget->setCurrentItem(item);
+		last_select_item_index = row + 1;
+	}
+}
 void MainWindow::AddNewIntItemToList(int item1, int item2, int item3, string name, int r, int g, int b)
 {
 	int total_boxes = ui->treeWidget->topLevelItemCount();
@@ -526,6 +553,12 @@ void MainWindow::PressedBinPacking()
 			cout << "i=" << i << ", order=" << item_order << endl;
 
 			QTreeWidgetItem *item_chage_order = ui->treeWidget->topLevelItem(item_order-1);
+
+			//ui->treeWidget->takeTopLevelItem(item_order - 1);
+			//ui->treeWidget->insertTopLevelItem(i, item_chage_order);
+
+
+
 			item_chage_order->setText(0, QString::number(i+1));
 
 			/*item->setText(0, QString::number(boxes_item_num[i]));
@@ -536,7 +569,7 @@ void MainWindow::PressedBinPacking()
 			item->setText(5, QString::number(boxes_r[i]));
 			item->setText(6, QString::number(boxes_g[i]));
 			item->setText(7, QString::number(boxes_b[i]));*/
-
+			
 			if (boxes_bin_num[i] == 1)//pack
 			{
 				item->setBackgroundColor(0, QColor(item->text(5).toInt(), item->text(6).toInt(), item->text(7).toInt()));
@@ -546,7 +579,11 @@ void MainWindow::PressedBinPacking()
 				item->setBackgroundColor(0, QColor(10, 10, 10));
 			}
 
+			
+
+			
 		}
+		//ui->treeWidget->sortByColumn(0); //this sort 1,10,11,12,2,20
 
 
 
@@ -569,6 +606,55 @@ void MainWindow::PressedReset()
 }
 void MainWindow::PressedShowOrder()
 {
+	//sort by search 0->max
+	//if current is larger than next -> looply move down
+	int total_boxes = ui->treeWidget->topLevelItemCount();
+	QTreeWidgetItem *curr_item, *next_item;
+	int curr_item_no, next_item_no;
+	for (int i = 0; i < total_boxes-1; i++)
+	{
+		//cout << "i=" << i;
+		curr_item = ui->treeWidget->topLevelItem(i);
+		next_item = ui->treeWidget->topLevelItem(i+1);
+		curr_item_no = curr_item->text(0).toInt();
+		next_item_no = next_item->text(0).toInt();
+
+		//cout << " : curr_item_no=" << curr_item_no << ", next_item_no=" << next_item_no << endl;
+		int j = 0;
+		while (curr_item_no > next_item_no)
+		{
+			
+			//cout << " j="<< j ;
+			
+			if (i + j  >= total_boxes-1) break;
+
+			curr_item = ui->treeWidget->topLevelItem(i+j);
+			next_item = ui->treeWidget->topLevelItem(i+j+1);
+			curr_item_no = curr_item->text(0).toInt();
+			next_item_no = next_item->text(0).toInt();	
+
+			//cout << " : curr_item_no=" << curr_item_no << ", next_item_no=" << next_item_no << endl;
+			
+			//if (curr_item_no >= total_boxes-1) break;
+			
+
+			ui->treeWidget->takeTopLevelItem(i+j);
+			ui->treeWidget->insertTopLevelItem(i+j+1, curr_item);
+
+			//cout << "   itemcount=" << ui->treeWidget->topLevelItemCount() << endl;
+
+
+
+			j++;
+
+
+			
+
+		}
+
+	}
+
+
 	//show animation?
 	ui->widget->ShowFirstNumber();
 	ui->label_order->setText(QString::number(ui->widget->show_number));

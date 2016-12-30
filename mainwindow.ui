@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>900</width>
-    <height>600</height>
+    <width>899</width>
+    <height>550</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -32,10 +32,10 @@
    <widget class="QLineEdit" name="in_box_w">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>550</y>
+      <x>100</x>
+      <y>500</y>
       <width>31</width>
-      <height>23</height>
+      <height>20</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -59,8 +59,8 @@
    <widget class="QPushButton" name="bt_binpacking">
     <property name="geometry">
      <rect>
-      <x>580</x>
-      <y>40</y>
+      <x>230</x>
+      <y>520</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -81,8 +81,8 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>40</y>
-      <width>55</width>
+      <y>30</y>
+      <width>41</width>
       <height>23</height>
      </rect>
     </property>
@@ -101,8 +101,8 @@
    <widget class="QPushButton" name="bt_showorder">
     <property name="geometry">
      <rect>
-      <x>770</x>
-      <y>40</y>
+      <x>310</x>
+      <y>520</y>
       <width>71</width>
       <height>23</height>
      </rect>
@@ -124,8 +124,8 @@
    <widget class="QPushButton" name="bt_next_order">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>40</y>
+      <x>365</x>
+      <y>500</y>
       <width>16</width>
       <height>23</height>
      </rect>
@@ -147,10 +147,10 @@
    <widget class="QLineEdit" name="in_box_h">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>550</y>
+      <x>130</x>
+      <y>500</y>
       <width>31</width>
-      <height>23</height>
+      <height>20</height>
      </rect>
     </property>
     <property name="font">
@@ -168,8 +168,8 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>530</y>
+      <x>10</x>
+      <y>500</y>
       <width>91</width>
       <height>20</height>
      </rect>
@@ -190,7 +190,7 @@
     <property name="geometry">
      <rect>
       <x>390</x>
-      <y>70</y>
+      <y>40</y>
       <width>500</width>
       <height>500</height>
      </rect>
@@ -202,8 +202,8 @@
    <widget class="QPushButton" name="bt_remove">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>40</y>
+      <x>90</x>
+      <y>30</y>
       <width>55</width>
       <height>23</height>
      </rect>
@@ -223,10 +223,10 @@
    <widget class="QLineEdit" name="in_box_d">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>550</y>
+      <x>160</x>
+      <y>500</y>
       <width>31</width>
-      <height>23</height>
+      <height>20</height>
      </rect>
     </property>
     <property name="font">
@@ -244,8 +244,8 @@
    <widget class="QPushButton" name="bt_previous_order">
     <property name="geometry">
      <rect>
-      <x>750</x>
-      <y>40</y>
+      <x>310</x>
+      <y>500</y>
       <width>16</width>
       <height>23</height>
      </rect>
@@ -267,8 +267,8 @@
    <widget class="QPushButton" name="bt_add_box">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>550</y>
+      <x>230</x>
+      <y>500</y>
       <width>31</width>
       <height>23</height>
      </rect>
@@ -288,9 +288,9 @@
    <widget class="QPushButton" name="bt_save">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>40</y>
-      <width>55</width>
+      <x>50</x>
+      <y>30</y>
+      <width>41</width>
       <height>23</height>
      </rect>
     </property>
@@ -309,8 +309,8 @@
    <widget class="QPushButton" name="bt_clearall">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>40</y>
+      <x>140</x>
+      <y>30</y>
       <width>55</width>
       <height>23</height>
      </rect>
@@ -330,8 +330,8 @@
    <widget class="QLineEdit" name="in_bin_d">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>40</y>
+      <x>160</x>
+      <y>520</y>
       <width>31</width>
       <height>20</height>
      </rect>
@@ -351,8 +351,8 @@
    <widget class="QLineEdit" name="in_bin_h">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>40</y>
+      <x>130</x>
+      <y>520</y>
       <width>31</width>
       <height>20</height>
      </rect>
@@ -372,8 +372,8 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>40</y>
+      <x>10</x>
+      <y>520</y>
       <width>91</width>
       <height>20</height>
      </rect>
@@ -393,8 +393,8 @@
    <widget class="QLineEdit" name="in_bin_w">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>40</y>
+      <x>100</x>
+      <y>520</y>
       <width>31</width>
       <height>20</height>
      </rect>
@@ -415,9 +415,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>70</y>
+      <y>60</y>
       <width>371</width>
-      <height>451</height>
+      <height>431</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -580,8 +580,8 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>550</y>
+      <x>200</x>
+      <y>500</y>
       <width>25</width>
       <height>23</height>
      </rect>
@@ -601,8 +601,8 @@
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>450</x>
-      <y>40</y>
+      <x>200</x>
+      <y>520</y>
       <width>25</width>
       <height>23</height>
      </rect>
@@ -622,8 +622,8 @@
    <widget class="QPushButton" name="bt_reset">
     <property name="geometry">
      <rect>
-      <x>670</x>
-      <y>40</y>
+      <x>840</x>
+      <y>10</y>
       <width>50</width>
       <height>23</height>
      </rect>
@@ -643,8 +643,8 @@
    <widget class="QComboBox" name="comboBox_packMethod">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>40</y>
+      <x>770</x>
+      <y>10</y>
       <width>75</width>
       <height>22</height>
      </rect>
@@ -671,7 +671,7 @@
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>390</x>
+      <x>460</x>
       <y>10</y>
       <width>55</width>
       <height>20</height>
@@ -692,7 +692,7 @@
    <widget class="QLineEdit" name="in_node_limit">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>510</x>
       <y>10</y>
       <width>40</width>
       <height>20</height>
@@ -716,7 +716,7 @@
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>510</x>
+      <x>560</x>
       <y>10</y>
       <width>55</width>
       <height>20</height>
@@ -737,7 +737,7 @@
    <widget class="QLineEdit" name="in_iter_limit">
     <property name="geometry">
      <rect>
-      <x>570</x>
+      <x>610</x>
       <y>10</y>
       <width>40</width>
       <height>20</height>
@@ -761,7 +761,7 @@
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>630</x>
+      <x>660</x>
       <y>10</y>
       <width>55</width>
       <height>20</height>
@@ -782,7 +782,7 @@
    <widget class="QLineEdit" name="in_time_limit">
     <property name="geometry">
      <rect>
-      <x>690</x>
+      <x>710</x>
       <y>10</y>
       <width>40</width>
       <height>20</height>
@@ -806,7 +806,7 @@
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>740</x>
+      <x>750</x>
       <y>10</y>
       <width>20</width>
       <height>20</height>
@@ -827,9 +827,9 @@
    <widget class="QLabel" name="label_filename">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>10</y>
-      <width>361</width>
+      <width>441</width>
       <height>20</height>
      </rect>
     </property>
@@ -848,8 +848,8 @@
    <widget class="QLabel" name="label_order">
     <property name="geometry">
      <rect>
-      <x>780</x>
-      <y>20</y>
+      <x>320</x>
+      <y>500</y>
       <width>51</width>
       <height>20</height>
      </rect>
@@ -857,7 +857,7 @@
     <property name="font">
      <font>
       <family>Calibri</family>
-      <pointsize>10</pointsize>
+      <pointsize>9</pointsize>
      </font>
     </property>
     <property name="focusPolicy">
@@ -868,6 +868,48 @@
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bt_moveup">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>30</y>
+      <width>71</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="text">
+     <string>move up</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bt_movedown">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>30</y>
+      <width>71</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="text">
+     <string>move down</string>
     </property>
    </widget>
   </widget>

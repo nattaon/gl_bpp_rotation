@@ -26,7 +26,7 @@ void GLWidget::keyPressEvent(QKeyEvent * event)
 {
 	//after opengl show boxes, this function is not working tooo!!!!
 
-	cout << "GLWidget event->key() " << event->key() << endl;
+	//cout << "GLWidget event->key() " << event->key() << endl;
 	if (event->key() == Qt::Key_Right)
 	{
 		IncreaseShowNumber();

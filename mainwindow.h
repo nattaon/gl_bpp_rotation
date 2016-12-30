@@ -36,6 +36,8 @@ private slots:
     void PressedLoadDb();
     void PressedSaveDb();
     void PressedClearAll();
+	void PressedMoveUp();
+	void PressedMoveDown();
 
     void PressedBinPacking();
 	void PressedReset();
