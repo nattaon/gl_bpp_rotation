@@ -12,6 +12,7 @@ public:
 		int *box_w, int *box_h, int *box_d,
 		int *box_x, int *box_y, int *box_z,
 		int *orien_x, int *orien_y, int *orien_z,
+		int *box_r, int *box_g, int *box_b,
 		int *bin_no, int *item_no);
 
 	void SortBoxesOrder();
@@ -29,6 +30,7 @@ public:
 	int	*bpp_box_w, *bpp_box_h, *bpp_box_d;
 	int	*bpp_box_x, *bpp_box_y, *bpp_box_z;
 	int	*bpp_orien_x, *bpp_orien_y, *bpp_orien_z;
+	int	*bpp_box_r, *bpp_box_g, *bpp_box_b;
 	int	*bpp_bin_no, *bpp_item_no;
 
 };

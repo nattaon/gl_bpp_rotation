@@ -21,6 +21,7 @@ GLWidget::GLWidget(QWidget *parent):
 	ResetWindow();
 
 }
+
 void GLWidget::keyPressEvent(QKeyEvent * event)
 {
 	//after opengl show boxes, this function is not working tooo!!!!

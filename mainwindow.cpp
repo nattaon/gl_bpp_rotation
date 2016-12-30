@@ -69,8 +69,8 @@ MainWindow::MainWindow(QWidget *parent) :
     binpack = new CalculateBppErhan();
 	txtfile = new ReadWriteFile();
 	
-	//LoadBPPFileToUI("C:/Users/nattaon2/Desktop/gl_bpp_rotation/box_all.txt");
-	LoadBPPFileToUI("C:/Users/Nattaon/Desktop/qt_bpp_rotate/box_all2.txt");
+	LoadBPPFileToUI("C:/Users/nattaon2/Desktop/gl_bpp_rotation/box_all2.txt");
+	//LoadBPPFileToUI("C:/Users/Nattaon/Desktop/qt_bpp_rotate/box_all2.txt");
 
 	ui->widget->SetInitialBin(GetBinWidth(), GetBinHeight(), GetBinDepth());
 	ui->treeWidget->header()->resizeSection(0, 45);//No
@@ -101,6 +101,7 @@ bool MainWindow::eventFilter(QObject *object, QEvent *event) {
 	}
 	return false;
 }*/
+/*
 void MainWindow::keyPressEvent(QKeyEvent * event)
 {
 	//after opengl show boxes, this function is not working tooo!!!!
@@ -115,7 +116,7 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
 		PressedPreviousOrder();
 	}
 	
-}
+}*/
 
 void MainWindow::AddNewIntItemToList(int item1, int item2, int item3, string name, int r, int g, int b)
 {
@@ -472,6 +473,7 @@ void MainWindow::PressedBinPacking()
 		boxes_w, boxes_h, boxes_d,
 		boxes_x_pos, boxes_y_pos, boxes_z_pos,
 		boxes_x_orient, boxes_y_orient, boxes_z_orient,
+		boxes_r, boxes_g, boxes_b,
 		boxes_bin_num, boxes_item_num);
 
 	cout << endl;
@@ -515,10 +517,17 @@ void MainWindow::PressedBinPacking()
 			boxes_r, boxes_g, boxes_b,
 			boxes_bin_num, boxes_item_num);
 
-
+		//rerun number of sorted items
 		for (int i =0; i < total_boxes; i++)
 		{
 			QTreeWidgetItem *item = ui->treeWidget->topLevelItem(i);
+			int item_order = boxes_item_num[i];
+			
+			cout << "i=" << i << ", order=" << item_order << endl;
+
+			QTreeWidgetItem *item_chage_order = ui->treeWidget->topLevelItem(item_order-1);
+			item_chage_order->setText(0, QString::number(i+1));
+
 			/*item->setText(0, QString::number(boxes_item_num[i]));
 			item->setText(1, QString::number(boxes_w[i]));
 			item->setText(2, QString::number(boxes_h[i]));

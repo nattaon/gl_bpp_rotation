@@ -50,7 +50,7 @@
      </font>
     </property>
     <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
+     <enum>Qt::ClickFocus</enum>
     </property>
     <property name="text">
      <string>150</string>
@@ -159,7 +159,7 @@
      </font>
     </property>
     <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
+     <enum>Qt::ClickFocus</enum>
     </property>
     <property name="text">
      <string>110</string>
@@ -196,7 +196,7 @@
      </rect>
     </property>
     <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
+     <enum>Qt::ClickFocus</enum>
     </property>
    </widget>
    <widget class="QPushButton" name="bt_remove">
@@ -235,7 +235,7 @@
      </font>
     </property>
     <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
+     <enum>Qt::ClickFocus</enum>
     </property>
     <property name="text">
      <string>50</string>
@@ -342,7 +342,7 @@
      </font>
     </property>
     <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
+     <enum>Qt::ClickFocus</enum>
     </property>
     <property name="text">
      <string>225</string>
@@ -363,7 +363,7 @@
      </font>
     </property>
     <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
+     <enum>Qt::ClickFocus</enum>
     </property>
     <property name="text">
      <string>220</string>
@@ -405,7 +405,7 @@
      </font>
     </property>
     <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
+     <enum>Qt::ClickFocus</enum>
     </property>
     <property name="text">
      <string>330</string>
@@ -439,7 +439,7 @@
      </font>
     </property>
     <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
+     <enum>Qt::ClickFocus</enum>
     </property>
     <property name="verticalScrollBarPolicy">
      <enum>Qt::ScrollBarAlwaysOn</enum>
@@ -704,7 +704,7 @@
      </font>
     </property>
     <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
+     <enum>Qt::ClickFocus</enum>
     </property>
     <property name="text">
      <string>0</string>
@@ -749,7 +749,7 @@
      </font>
     </property>
     <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
+     <enum>Qt::ClickFocus</enum>
     </property>
     <property name="text">
      <string>0</string>
@@ -794,7 +794,7 @@
      </font>
     </property>
     <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
+     <enum>Qt::ClickFocus</enum>
     </property>
     <property name="text">
      <string>1</string>
