@@ -71,8 +71,8 @@ MainWindow::MainWindow(QWidget *parent) :
     binpack = new CalculateBppErhan();
 	txtfile = new ReadWriteFile();
 	
-	LoadBPPFileToUI("C:/Users/nattaon2/Desktop/gl_bpp_rotation/box_all2.txt");
-	//LoadBPPFileToUI("C:/Users/Nattaon/Desktop/qt_bpp_rotate/box_all2.txt");
+	//LoadBPPFileToUI("C:/Users/nattaon2/Desktop/gl_bpp_rotation/box_all2.txt");//at lab
+	//LoadBPPFileToUI("C:/Users/Nattaon/Desktop/qt_bpp_rotate/box_all2.txt");//at home
 
 	ui->widget->SetInitialBin(GetBinWidth(), GetBinHeight(), GetBinDepth());
 	ui->treeWidget->header()->resizeSection(0, 45);//No
@@ -179,10 +179,19 @@ void MainWindow::AddNewStringItemToList(QString item1, QString item2, QString it
 
 	QTreeWidgetItem *item = new QTreeWidgetItem(ui->treeWidget);
 
+	int color_r = (rand() % 200 + 56);// / 255.0;
+	int color_g = (rand() % 200 + 56);// / 255.0;
+	int color_b = (rand() % 200 + 56);// / 255.0;
+
 	item->setText(0, QString::number(total_boxes+1));
 	item->setText(1, item1);
 	item->setText(2, item2);
 	item->setText(3, item3);
+	item->setText(5, QString::number(color_r));
+	item->setText(6, QString::number(color_g));
+	item->setText(7, QString::number(color_b));
+
+	item->setBackgroundColor(0, QColor(color_r, color_g, color_b));
 
 	item->setTextAlignment(0, Qt::AlignHCenter);
 	item->setTextAlignment(1, Qt::AlignHCenter);
@@ -400,6 +409,8 @@ void MainWindow::PressedSaveDb()
 		save_boxes_w, save_boxes_h, save_boxes_d,
 		save_boxes_name,
 		save_boxes_r, save_boxes_g, save_boxes_b);
+
+	ui->label_filename->setText(fileName);
 }
 void MainWindow::PressedClearAll()
 {

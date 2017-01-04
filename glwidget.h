@@ -1,6 +1,6 @@
 #ifndef GLWIDGET_H
 #define GLWIDGET_H
-#include "mycolor.h"
+//#include "mycolor.h"
 
 #include <QtOpenGL/QGLWidget>
 #include <QMouseEvent>
