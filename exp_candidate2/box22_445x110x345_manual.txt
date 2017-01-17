@@ -1,0 +1,24 @@
+445 110 345
+22
+159 96 63 (215,149,113)//02brown_chocolasenu
+165 112 52 (225,229,163)//03yellow_rascre
+160 95 60 (82,54,41)//04brown_7-11cookies
+168 99 52 (233,91,174)//05pink_zackkey
+160 95 60 (187,37,33)//06pink_rufier
+158 95 60 (22,50,222)//07blue_moonlight
+160 112 51 (243,189,48)//09white_dasses
+144 118 48 (98,230,56)//12green_pienomi
+230 114 37 (243,220,179)//13white_hokkaidowhite
+158 98 63 (65,199,228)//15blue_collon
+154 88 27 (188,181,76)//16yellow_macadamia
+140 127 65 (204,201,211)//41brown_lemoncookies
+138 122 90 (150,121,135)//42brown_hokkaidopoteto
+205 50 50 (109,63,54)//43brown_choco
+214 70 56 (220,20,13)//44red_cookies
+220 68 53 (210,35,32)//46red_chocochip
+170 77 15 (183,228,248)//47white_alfort
+204 67 24 (57,59,67)//50grey_tokyochoco
+203 97 53 (207,189,150)//51white_shriver
+163 163 39 (252,223,229)//52white_daifuku
+200 163 60 (224,210,163)//53white_tokyobanana
+150 121 95 (133,210,232)//54blue_fujisan
