@@ -45,8 +45,8 @@ void GLWidget::initializeGL()
 	//glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
 
 	//glClearColor(0.9, 0.9, 0.9, 1);
-    //glClearColor(1.0, 1.0, 1.0, 1);//white background
-	glClearColor(0.0, 0.0, 0.0, 1);//black background
+    glClearColor(1.0, 1.0, 1.0, 1);//white background
+	//glClearColor(0.0, 0.0, 0.0, 1);//black background
 
 	glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
 	glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse);
@@ -105,7 +105,7 @@ void GLWidget::paintGL()
 
 	glScalef(zoom, zoom, zoom);
 
-	DrawAxis(axis_length);
+	//DrawAxis(axis_length);
 	DrawBin();		
 	if (is_show_binpacking)
 	{
@@ -132,6 +132,7 @@ void GLWidget::setXRotation(int angle)
 	qNormalizeAngle(angle);
 	if (angle != xRot) {
 		xRot = angle;
+		cout << "rotation x,y,z= " << xRot << "," << yRot << "," << zRot << endl;
 		//emit xRotationChanged(angle);
 		updateGL();
 	}
@@ -159,13 +160,13 @@ void GLWidget::setZRotation(int angle)
 void GLWidget::setXTranslation(int value)
 {
 	xMove += value;
-	//std::cout << "xMove:" << xMove << std::endl;
+	std::cout << "Move x,y :" << xMove << "," << yMove << std::endl;
 	updateGL();
 }
 void GLWidget::setYTranslation(int value)
 {
 	yMove -= value;
-	//std::cout << "yMove:" << yMove << std::endl;
+	std::cout << "Move x,y :" << xMove << "," << yMove << std::endl;
 	updateGL();
 
 }
@@ -219,7 +220,7 @@ void GLWidget::wheelEvent(QWheelEvent *event)
 	{
 		std::cout << "delta value forbidden " << event->delta() << std::endl;
 	}
-	//std::cout << "zoom=" << zoom << std::endl;
+	std::cout << "zoom=" << zoom << std::endl;
 	updateGL();
 }
 
@@ -236,15 +237,20 @@ void GLWidget::SetInitialBin(int binW, int binH, int binD)
 }
 void GLWidget::ResetWindow()
 {
-	xRot = 45;
-	yRot = 315;
+	//xRot = 45;
+	//yRot = 375;
+	//zRot = 0;
+
+	//box17
+	xRot = 30;
+	yRot = 30;
 	zRot = 0;
 
-	xMove = 0;
-	yMove = 0;
+	xMove = -296;
+	yMove = -124;
 	zMove = 0;
 
-	zoom = 1.0;
+	zoom = 1.6;
 
 	is_show_binpacking = false;
 	total_boxes = 0;
@@ -345,7 +351,7 @@ void GLWidget::DrawBin()
 	{
 		glTranslatef(bin_w/2, bin_h/2, bin_d/2);
 		glScalef(bin_w, bin_h, bin_d);
-		glColor3d(0.5, 0.5, 0.5);
+		glColor3d(0.0, 0.0, 0.0);
 		glutWireCube(1.0);
 		//glutSolidCube(1.0);
 

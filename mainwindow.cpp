@@ -71,7 +71,7 @@ MainWindow::MainWindow(QWidget *parent) :
     binpack = new CalculateBppErhan();
 	txtfile = new ReadWriteFile();
 	
-	//LoadBPPFileToUI("C:/Users/nattaon2/Desktop/gl_bpp_rotation/box_all2.txt");//at lab
+	LoadBPPFileToUI("C:/Users/nattaon2/Desktop/gl_bpp_rotation/exp_candidate2/box17_325x210x230_manual.txt");//at lab
 	//LoadBPPFileToUI("C:/Users/Nattaon/Desktop/qt_bpp_rotate/box_all2.txt");//at home
 
 	ui->widget->SetInitialBin(GetBinWidth(), GetBinHeight(), GetBinDepth());
